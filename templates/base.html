@@ -16,7 +16,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
 
-    <title>{% block page_title %}{% endblock %}<title> 
+    <title>{% block page_title %}{% endblock page_title %}</title> 
     
 </head>
 
@@ -24,7 +24,7 @@
     <div class="main-container">
 
         {% block background %}
-        {% endblock %}
+        {% endblock background %}
 
         <!--Navbar -->
         
