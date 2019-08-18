@@ -488,6 +488,13 @@ footer{
   width: max-content;
 }
 
+.content-section {
+  background: #f0eeee;
+  padding: 10px 20px;
+  width: 800px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
 
 /* media queries */
 @media (max-width: 500px) {

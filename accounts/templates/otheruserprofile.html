@@ -69,7 +69,6 @@
             <ul class="list-group float">
                 <li class="list-group-item features">User's Features</li>
                 {%for feature in features%}
-                <li class="list-group-item">
                 <li class="list-group-item"><a href="{% url 'feature_detail' feature.id %}"><span
                             class="wb">{{ feature.title|title|truncatechars:80 }}</span></a>
                     <span</li> {%empty%} <li class="list-group-item">No Features
