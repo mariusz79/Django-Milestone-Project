@@ -125,3 +125,51 @@ def sort_features(request):
     request.session['type'] = search_type
 
     return render(request, "allfeatures.html", context)
+
+def feature_detail(request, pk):
+    """
+    Create a view that returns a single
+    Post object based on the post ID (pk) and
+    render it to the 'postdetail.html' template.
+    Or return a 404 error if the post is
+    not found
+    """
+    # get post object
+
+    feature = get_object_or_404(Feature, pk=pk) if pk else None
+
+    num_of_likes = feature.likes
+    feature.views += 1
+    feature.save()
+
+    #check if post is liked by user
+    if request.user.is_authenticated():
+        is_liked = FeatureLike.objects.filter(liked_feature=pk, liker_user=request.user).exists()
+    else:
+        is_liked = False
+
+    if request.method == "POST":
+        form = FeatureCommentForm(data=request.POST)
+
+        if form.is_valid():
+            # create comment object but do not save to database
+            new_comment = form.save(commit=False)
+            new_comment.author = request.user
+            # assign ship to the comment
+            new_comment.Feature = Feature
+            # save
+            new_comment.save()
+            return redirect(feature_detail, feature.pk)
+    else:
+        comment_form = FeatureCommentForm()
+
+    group = Group.objects.get(name="paid").user_set.all()
+
+    return render(
+        request, "featuredetail.html", {
+            'feature': feature,
+            'num_of_likes': num_of_likes,
+            'is_liked': is_liked,
+            'comment_form': comment_form,
+            'group': group
+        })
