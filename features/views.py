@@ -47,3 +47,81 @@ def edit_feature(request, pk=None):
         return redirect(feature_detail, feature.pk)
 
     return render(request, 'featureform.html', {'form': form})
+
+
+@login_required
+def liking_feature(request, pk):
+    feature = get_object_or_404(Feature, pk=pk)
+    if feature.status != 4:
+        #check if post is liked by user
+        if request.user.is_authenticated():
+            is_liked = FeatureLike.objects.filter(
+                liked_feature=pk, liker_user=request.user).exists()
+        else:
+            is_liked = False
+
+        if not is_liked:
+            feature.likes += 1
+            feature.save()
+            newlike = FeatureLike.objects.create(liker_user=request.user,
+                                             liked_feature=feature)
+        else:
+            messages.info(request, "You can like only once")
+            return redirect(feature_detail, feature.pk)
+    else:
+        messages.info(request, "Likes are disabled for closed features")
+        return redirect(feature_detail, feature.pk)
+    return redirect(feature_detail, feature.pk)
+
+
+
+def sort_features(request):
+    """ view to render the minimal search template """
+
+    type_session = request.session.get('type', None)
+
+    selections = [
+        "title az", "title za", "date up", "date down", "likes up",
+        "likes down"
+    ]
+    search_type = request.GET.get('type')
+    if search_type is None:
+        search_type = type_session
+
+    # searching with blank will still work. However, it will cause errors with
+    # the pagination
+
+    posts = Feature.objects.all().order_by('-id')
+    if search_type == "date up":
+        posts = Feature.objects.all().order_by('id')
+    elif search_type == "date down":
+        posts = Feature.objects.all().order_by('-id')
+    elif search_type == "title az":
+        posts = Feature.objects.all().order_by('title')
+    elif search_type == "title za":
+        posts = Feature.objects.all().order_by('-title')
+    elif search_type == "likes up":
+        posts = Feature.objects.all().order_by('likes')
+    elif search_type == "likes down":
+        posts = Feature.objects.all().order_by('-likes')
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(posts, 5)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        "object_list": posts,
+        "selections": selections,
+        "type": search_type
+    }
+    ordering = ['-id']
+
+    request.session['type'] = search_type
+
+    return render(request, "allfeatures.html", context)
