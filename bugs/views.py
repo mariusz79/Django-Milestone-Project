@@ -75,7 +75,7 @@ def bug_detail(request, pk):
             'group': group,
         })
 
-        
+
 @login_required
 def edit_bug(request, pk=None):
     bug = get_object_or_404(Bug, pk=pk) if pk else None
@@ -116,3 +116,55 @@ def liking_bug(request, pk):
         messages.info(request, "Likes are disabled for closed bugs")
         return redirect(bug_detail, bug.pk)
     return redirect(bug_detail, bug.pk)
+
+
+def sort_bugs(request):
+    """ view to render the minimal search template """
+
+    type_session = request.session.get('type', None)
+
+    selections = [
+        "title az", "title za", "date up", "date down", "likes up",
+        "likes down"
+    ]
+    search_type = request.GET.get('type')
+    if search_type is None:
+        search_type = type_session
+
+    # searching with blank will still work. However, it will cause errors with
+    # the pagination
+
+    posts = Bug.objects.all().order_by('-id')
+    if search_type == "date up":
+        posts = Bug.objects.all().order_by('id')
+    elif search_type == "date down":
+        posts = Bug.objects.all().order_by('-id')
+    elif search_type == "title az":
+        posts = Bug.objects.all().order_by('title')
+    elif search_type == "title za":
+        posts = Bug.objects.all().order_by('-title')
+    elif search_type == "likes up":
+        posts = Bug.objects.all().order_by('likes')
+    elif search_type == "likes down":
+        posts = Bug.objects.all().order_by('-likes')
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(posts, 5)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        "object_list": posts,
+        "selections": selections,
+        "type": search_type
+    }
+    ordering = ['-id']
+
+    request.session['type'] = search_type
+
+    return render(request, "allbugs.html", context)
