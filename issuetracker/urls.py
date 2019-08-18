@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from home import urls as home_urls
 from accounts import urls as accounts_urls
+from posts import urls as posts_urls
 from django.views.static import serve
 from .settings import MEDIA_ROOT, STATIC_ROOT
 
@@ -26,5 +27,5 @@ urlpatterns = [
     url(r'^accounts/', include(accounts_urls)),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
-     
+    url(r'^posts/', include(posts_urls)),
 ]
