@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'posts',
+    'bugs',
 ]
 
 MIDDLEWARE = [
