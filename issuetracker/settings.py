@@ -135,3 +135,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'JPEG'
 DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', 'accounts.backends.EmailAuth'
+]
