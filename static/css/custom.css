@@ -240,6 +240,21 @@ font-size: xx-large;
     color: azure;
 }
 
+/*--------------------------cards-----------------------*/
+.card-header-font{
+    font-size: 1.5rem;
+}
+
+.card-header:first-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.card-footer, .card-footer:last-child {
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+
 
 
 /* media queries */

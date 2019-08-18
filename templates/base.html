@@ -196,7 +196,39 @@
     <script>
 
         $(document).ready(function () {
+                      $(window).scroll(function () {
 
+                var height = $('.first-container').height();
+                var scrollTop = $(window).scrollTop();
+                var bannerheight = 200
+                if (height == 500) {
+                    bannerheight = 400
+                }
+
+                if (scrollTop >= height - bannerheight) {
+                    $('.navbar').addClass('solid-nav').addClass('shadow');
+                    $('.navbar-brand').addClass('smaller-font');
+                } else {
+                    $('.navbar').removeClass('solid-nav').removeClass('shadow');
+                    $('.navbar-brand').removeClass('smaller-font');
+                }
+
+            });
+
+            var btnup = $('#button-up');
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 300) {
+                    btnup.addClass('show');
+                } else {
+                    btnup.removeClass('show');
+                }
+            });
+
+            btnup.on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, '300');
+            });
             
  
             AOS.init({
