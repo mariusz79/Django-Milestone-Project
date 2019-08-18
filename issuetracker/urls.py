@@ -19,7 +19,7 @@ from home import urls as home_urls
 from accounts import urls as accounts_urls
 from posts import urls as posts_urls
 from bugs import urls as bugs_urls
- 
+from features import urls as features_urls
 from django.views.static import serve
 from .settings import MEDIA_ROOT, STATIC_ROOT
 
@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
     url(r'^posts/', include(posts_urls)),
     url(r'^bugs/', include(bugs_urls)),
-     
+    url(r'^features/', include(features_urls)),
 ]
