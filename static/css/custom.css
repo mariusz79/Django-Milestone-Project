@@ -382,6 +382,38 @@ footer{
     border-left: 2px solid currentColor;
 }
 
+/* -----------------------------bugs---------------------*/
+.wb{
+  word-break: break-all;
+  font-size: 1.2 rem;
+}
+
+.status{
+    border-radius: 4px;
+    min-width: 4rem;
+    text-align: center;
+}
+
+.status-1{
+  background-color: rgb(230, 186, 54);
+  color: rgb(42, 34, 34);
+}
+
+.status-2{
+  background-color: #8ABEC6;
+  color: white;
+}
+
+.status-3{
+  background-color: rgb(49, 201, 85);
+  color: white;
+}
+.status-4{
+  background-color: #BD2130;
+  color: white;
+}
+
+
 
 /* media queries */
 @media (max-width: 500px) {
