@@ -7,6 +7,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.models import User, Group
 from django.contrib.admin.views.decorators import staff_member_required
 from home.views import index
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 @login_required
@@ -48,7 +49,7 @@ def edit_post (request, pk=None):
 
     return render(request, 'blogpostform.html', {'form': form})
 
-    
+
 def post_detail(request, pk):
     """
     Create a view that returns a single
@@ -115,3 +116,53 @@ def liking(request, pk):
         messages.success(request, "You can like only once")
         return redirect(post_detail, post.pk)
     return redirect(post_detail, post.pk)
+
+
+def sort_by(request):
+    """ view to render the minimal search template """
+
+    type_session = request.session.get('type', None)
+
+    selections = [
+        "title az", "title za", "date up", "date down", "likes up",
+        "likes down"
+    ]
+    search_type = request.GET.get('type')
+    if search_type is None:
+        search_type = type_session
+
+
+    posts = Post.objects.all().order_by('-id')
+    if search_type == "date up":
+        posts = Post.objects.all().order_by('id')
+    elif search_type == "date down":
+        posts = Post.objects.all().order_by('-id')
+    elif search_type == "title az":
+        posts = Post.objects.all().order_by('title')
+    elif search_type == "title za":
+        posts = Post.objects.all().order_by('-title')
+    elif search_type == "likes up":
+        posts = Post.objects.all().order_by('likes')
+    elif search_type == "likes down":
+        posts = Post.objects.all().order_by('-likes')
+
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(posts, 5)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        "object_list": posts,
+        "selections": selections,
+        "type": search_type
+    }
+    ordering = ['-id']
+
+    request.session['type'] = search_type
+
+    return render(request, "allposts.html", context)
