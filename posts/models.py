@@ -24,3 +24,25 @@ class Post(models.Model):
 
     def class_name(self):
         return self.__class__.__name__
+
+
+class Like(models.Model):
+    liker_user = models.ForeignKey(User, null=True)
+    liked_post = models.ForeignKey(Post, null=True)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post,
+                             on_delete=models.CASCADE,
+                             related_name='comments')
+    author = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=200, blank=True)
+    text = models.TextField(max_length=200)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        # sort comments in chronological order by default
+        ordering = ('created_date',)
+
+    def __str__(self):
+        return self.text
