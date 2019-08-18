@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block page_title %}Login Page{% endblock %}
+{% load bootstrap_tags %}
+
+{% block background %}
+
+<div class="first-container pages">
+    <div class="baner ">
+        <div class="image-darker">
+            <img src="/media/banners/b1.jpg" class="background-short "></div>
+        <div class="banner-title-down text-center ">
+            <h3 class="text-white ">Accounts/Login</h3>
+        </div>
+    </div>
+</div>
+
+{% endblock background %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow mt-3">
+                <h3 class="card-header center">Log in</h3>
+                <div class="card-body">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form | as_bootstrap }}
+                        <button type="submit" class="btn btn-info btn-rounded   btn-block">Login &nbsp;
+                            <i class="fas fa-sign-in-alt"></i></button>
+                        <input type="hidden" name="next" value="{{next}}" />
+                        <p class="reset-password"><a href=" ">Forgot Password?</a></p>
+                    </form>
+                </div>
+                <div class="border-top card-footer">
+                    <small class="text-muted center">
+                        Need An Account? <a class="ml-2" href="{% url 'registration' %}">Sign Up Now</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
