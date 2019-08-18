@@ -29,7 +29,26 @@ def create_post(request, pk=None):
 
     return render(request, 'blogpostform.html', {'form': form})
 
- 
+@login_required
+@staff_member_required
+def edit_post (request, pk=None):
+    post = get_object_or_404(Post, pk=pk) if pk else None
+    if request.user == post.author:
+        if request.method == "POST":
+            form = BlogPostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save()
+                return redirect(post_detail, post.pk)
+        else:
+            if request.user == post.author:
+                form = BlogPostForm(instance=post)
+    else:
+        messages.success(request, "You need to be post author to edit it")
+        return redirect(post_detail, post.pk)
+
+    return render(request, 'blogpostform.html', {'form': form})
+
+    
 def post_detail(request, pk):
     """
     Create a view that returns a single
