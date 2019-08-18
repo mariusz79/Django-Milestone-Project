@@ -27,7 +27,55 @@ def create_bug(request, pk=None):
             return redirect(bug_detail, bug.pk)
 
     return render(request, 'bugform.html', {'form': form})
+def bug_detail(request, pk):
+    """
+    Create a view that returns a single
+    Post object based on the post ID (pk) and
+    render it to the 'postdetail.html' template.
+    Or return a 404 error if the post is
+    not found
+    """
+    # get post object
 
+    bug = get_object_or_404(Bug, pk=pk) if pk else None
+
+    num_of_likes = bug.likes
+    bug.views += 1
+    bug.save()
+
+    #check if post is liked by user
+    if request.user.is_authenticated():
+        is_liked = BugLike.objects.filter(liked_bug=pk, liker_user=request.user).exists()
+    else:
+        is_liked = False
+
+    if request.method == "POST":
+        form = BugCommentForm(data=request.POST)
+
+        if form.is_valid():
+            # create comment object but do not save to database
+            new_comment = form.save(commit=False)
+            new_comment.author = request.user
+            # assign ship to the comment
+            new_comment.bug = bug
+            # save
+            new_comment.save()
+            return redirect(bug_detail, bug.pk)
+    else:
+        comment_form = BugCommentForm()
+
+    group = Group.objects.get(name="paid").user_set.all()
+
+    return render(
+        request, "bugdetail.html", {
+            'bug': bug,
+            'num_of_likes': num_of_likes,
+            'is_liked': is_liked,
+            'comment_form': comment_form,
+            'group': group,
+        })
+
+        
 @login_required
 def edit_bug(request, pk=None):
     bug = get_object_or_404(Bug, pk=pk) if pk else None
