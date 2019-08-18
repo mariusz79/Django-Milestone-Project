@@ -67,10 +67,10 @@
             <div class="mb-2 mt-2">
                 {% if user.is_authenticated and user.username == feature.author.username %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href="{% url 'profile' %}">{{ feature.author }}</a>,</span>
+                        href=" ">{{ feature.author }}</a>,</span>
                 {% else %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href="{% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a>,</span>
+                        href=" ">{{ feature.author }}</a>,</span>
 
                 {% endif %}
 
@@ -90,7 +90,7 @@
 
     </div>
     {% endfor %}
-    <div class="d-flex justify-content-center mb-2">
+    <div class="d-flex justify-content-center mb-2 mt-3">
         <div class="pagination">
             <span class="step-links">
                 {% if object_list.has_previous %}

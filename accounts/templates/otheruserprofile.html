@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block page_title %} {{user.username}}'s Profile{% endblock page_title%}
+
+
+{% load bootstrap_tags %}
+{% block background %}
+<div class="first-container pages">
+    <div class="baner ">
+        <div class="image-darker">
+            <img src="/media/banners/b (16a).jpg" class="background-short "></div>
+        <div class="banner-title-down text-center ">
+
+
+            <h3 class="text-white ">Accounts/Profile</h3>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock background %}
+{% block content %}
+
+<div class="container">
+    <div class="row center mt-4">
+        <div class="content-section shadow">
+            <div class="media">
+                <img class="rounded-circle account-img img-fluid"
+                    src="{{ user.profile.image.url|default:'/media/img/default.jpg'}}">
+                <div class="media-body">
+                    <h3 class="account-heading">{{ user.username }}</h3>
+                    {% if user in group %}
+                    <span class="sponsor">SPONSOR</span>
+                    {%endif%}
+                    <p class="text-secondary">Email: {{ user.email }}</p>
+                    <p class="text-secondary">Joined: <span class="post-info">{{ user.date_joined }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- FORM HERE -->
+
+    <div class="row mb-3">
+
+        <div class="col-lg-6 mb-3">
+            <ul class="list-group">
+                <li class="list-group-item bugs">User's Bugs</li>
+                {%for bug in bugs%}
+                <li class="list-group-item"><a href="{% url 'bug_detail' bug.id %}"><span
+                            class="wb">{{ bug.title|title|truncatechars:80 }}</span></a> <span
+                        class="text-muted">#{{bug.id}}</span></li>
+                {%empty%}
+                <li class="list-group-item">No Bugs</li>
+
+                {%endfor%}
+            </ul>
+        </div>
+
+
+        <div class="col-lg-6">
+            <ul class="list-group float">
+                <li class="list-group-item features">User's Features</li>
+                {%for feature in features%}
+                <li class="list-group-item">
+                <li class="list-group-item"><a href="{% url 'feature_detail' feature.id %}"><span
+                            class="wb">{{ feature.title|title|truncatechars:80 }}</span></a>
+                    <span</li> {%empty%} <li class="list-group-item">No Features
+                </li>
+                {%endfor%}
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

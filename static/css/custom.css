@@ -472,6 +472,21 @@ footer{
     color: white;
 }
 
+/*------------------profile--------------------------*/
+.account-img {
+  max-height: 125px;
+  max-width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.update-card{
+  width: max-content;
+}
 
 
 /* media queries */

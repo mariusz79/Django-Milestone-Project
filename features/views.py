@@ -7,74 +7,6 @@ from django.contrib import auth, messages
 from django.contrib.auth.models import User, Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-
-@login_required
-def create_feature(request, pk=None):
-    """
-    Create a view that allows us to create
-    or edit a post depending if the Post ID
-    is null or not
-    """
-    feature = get_object_or_404(Feature, pk=pk) if pk else None
-    form = FeatureForm()
-    if request.method == "POST":
-        form = FeatureForm(request.POST, instance=feature)
-        if form.is_valid():
-            feature = form.save(commit=False)
-            feature.author = request.user
-            feature.save()
-            return redirect(feature_detail, feature.pk)
-
-    return render(request, 'featureform.html', {'form': form})
-
-
-@login_required
-def edit_feature(request, pk=None):
-    feature = get_object_or_404(Feature, pk=pk) if pk else None
-    if request.user == feature.author:
-        if request.method == "POST":
-            form = FeatureForm(request.POST, instance=feature)
-            if form.is_valid():
-                feature = form.save(commit=False)
-                feature.author = request.user
-                feature.save()
-                return redirect(feature_detail, feature.pk)
-        else:
-            if request.user == feature.author:
-                form = FeatureForm(instance=feature)
-    else:
-        messages.info(request, "You need to be feature author to edit it")
-        return redirect(feature_detail, feature.pk)
-
-    return render(request, 'featureform.html', {'form': form})
-
-
-@login_required
-def liking_feature(request, pk):
-    feature = get_object_or_404(Feature, pk=pk)
-    if feature.status != 4:
-        #check if post is liked by user
-        if request.user.is_authenticated():
-            is_liked = FeatureLike.objects.filter(
-                liked_feature=pk, liker_user=request.user).exists()
-        else:
-            is_liked = False
-
-        if not is_liked:
-            feature.likes += 1
-            feature.save()
-            newlike = FeatureLike.objects.create(liker_user=request.user,
-                                             liked_feature=feature)
-        else:
-            messages.info(request, "You can like only once")
-            return redirect(feature_detail, feature.pk)
-    else:
-        messages.info(request, "Likes are disabled for closed features")
-        return redirect(feature_detail, feature.pk)
-    return redirect(feature_detail, feature.pk)
-
-
-
 def sort_features(request):
     """ view to render the minimal search template """
 
@@ -125,6 +57,79 @@ def sort_features(request):
     request.session['type'] = search_type
 
     return render(request, "allfeatures.html", context)
+
+
+@login_required
+def create_feature(request, pk=None):
+    """
+    Create a view that allows us to create
+    or edit a post depending if the Post ID
+    is null or not
+    """
+    feature = get_object_or_404(Feature, pk=pk) if pk else None
+    group = Group.objects.get(name="paid").user_set.all()
+    form = FeatureForm()
+    if request.user in group:
+        if request.method == "POST":
+            form = FeatureForm(request.POST, instance=feature)
+            if form.is_valid():
+                feature = form.save(commit=False)
+                feature.author = request.user
+                feature.save()
+                return redirect(feature_detail, feature.pk)
+    else:
+        messages.info(request, "You need to be a sponsor to add new feature")
+        return render(request, 'index.html')
+
+    return render(request, 'featureform.html', {'form': form})
+
+
+@login_required
+def edit_feature(request, pk=None):
+    feature = get_object_or_404(Feature, pk=pk) if pk else None
+    group = Group.objects.get(name="paid").user_set.all()
+    if request.user == feature.author and request.user in group:
+        if request.method == "POST":
+            form = FeatureForm(request.POST, instance=feature)
+            if form.is_valid():
+                feature = form.save(commit=False)
+                feature.author = request.user
+                feature.save()
+                return redirect(feature_detail, feature.pk)
+        else:
+            if request.user == feature.author:
+                form = FeatureForm(instance=feature)
+    else:
+        messages.info(request, "Only sponsors and authors can edit")
+        return redirect(feature_detail, feature.pk)
+
+    return render(request, 'featureform.html', {'form': form})
+
+
+@login_required
+def liking_feature(request, pk):
+    feature = get_object_or_404(Feature, pk=pk)
+    if feature.status != 4:
+        #check if post is liked by user
+        if request.user.is_authenticated():
+            is_liked = FeatureLike.objects.filter(
+                liked_feature=pk, liker_user=request.user).exists()
+        else:
+            is_liked = False
+
+        if not is_liked:
+            feature.likes += 1
+            feature.save()
+            newlike = FeatureLike.objects.create(liker_user=request.user,
+                                             liked_feature=feature)
+        else:
+            messages.info(request, "You can like only once")
+            return redirect(feature_detail, feature.pk)
+    else:
+        messages.info(request, "Likes are disabled for closed features")
+        return redirect(feature_detail, feature.pk)
+    return redirect(feature_detail, feature.pk)
+
 
 def feature_detail(request, pk):
     """

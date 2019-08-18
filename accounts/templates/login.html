@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block page_title %}Login Page{% endblock %}
 {% load bootstrap_tags %}
 
+
 {% block background %}
 
 <div class="first-container pages">
@@ -8,14 +9,29 @@
         <div class="image-darker">
             <img src="/media/banners/b1.jpg" class="background-short "></div>
         <div class="banner-title-down text-center ">
+
+
             <h3 class="text-white ">Accounts/Login</h3>
+
+
         </div>
+
     </div>
 </div>
 
+
 {% endblock background %}
 
+
+
+
+
+
 {% block content %}
+
+
+
+
 
 <div class="container">
 
@@ -31,7 +47,7 @@
                         <button type="submit" class="btn btn-info btn-rounded   btn-block">Login &nbsp;
                             <i class="fas fa-sign-in-alt"></i></button>
                         <input type="hidden" name="next" value="{{next}}" />
-                        <p class="reset-password"><a href=" ">Forgot Password?</a></p>
+                        <p class="reset-password"><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
                     </form>
                 </div>
                 <div class="border-top card-footer">
@@ -40,6 +56,7 @@
                     </small>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

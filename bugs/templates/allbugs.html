@@ -66,10 +66,10 @@
             <div class="mb-2 mt-2">
                 {% if user.is_authenticated and user.username == bug.author.username %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href="{% url 'profile' %}">{{ bug.author }}</a>,</span>
+                        href=" ">{{ bug.author }}</a>,</span>
                 {% else %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href="{% url 'other_user_profile' bug.author.username %}">{{ bug.author }}</a>,</span>
+                        href=" ">{{ bug.author }}</a>,</span>
 
                 {% endif %}
 
