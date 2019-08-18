@@ -413,8 +413,20 @@ footer{
   color: white;
 }
 
+.bugs{
+    background-color: #728694;
+    border: 1px solid #566d7d;
+    color: white;
+  }
 
+.card-header-font{
+    font-size: 1.5rem;
+  }
 
+.go-right{
+    float: none;
+}
+  
 /* media queries */
 @media (max-width: 500px) {
     .navbar-brand{
