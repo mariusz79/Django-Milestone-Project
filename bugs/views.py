@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Bug, BugLike, BugComment
 from .forms import BugForm, BugCommentForm
-from django.views.generic import ListView
 from django.contrib import auth, messages
 from django.contrib.auth.models import User, Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger

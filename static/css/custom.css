@@ -424,7 +424,7 @@ footer{
   }
 
 .go-right{
-    float: none;
+    float: right;
 }
   
 /* media queries */
@@ -432,6 +432,48 @@ footer{
     .navbar-brand{
         font-size: 1rem;
     }
+}
+
+@media (max-width: 576px) {
+   .inner-form{ 
+    display: inline;
+}
+
+.blog{
+  margin-top: 5rem;
+}
+
+.success-card{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.search-button{
+   display: grid;
+   width: 100%;
+ }
+
+.reset-form{
+    width: auto;
+}
+
+.avatar{
+    justify-content: start;
+}
+
+.post-form{
+    padding: 0;
+}
+
+.blogs{
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.go-right{
+  float: none;
+}
+ 
 }
 
 @media (max-width: 767px) {

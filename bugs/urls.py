@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import get_bugs, bug_detail, create_bug, edit_bug, liking_bug, sort_bugs
+from .views import bug_detail, create_bug, edit_bug, liking_bug, sort_bugs
 
 
 
