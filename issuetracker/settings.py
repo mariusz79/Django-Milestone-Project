@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_resized',
     'home',
     'accounts',
+    'posts',
 ]
 
 MIDDLEWARE = [
