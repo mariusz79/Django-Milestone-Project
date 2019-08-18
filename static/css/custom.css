@@ -113,6 +113,22 @@ height: 300px;
     height: 100%;
 }
 
+.blogs{
+  position: relative;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border: 1px solid  #565362;
+}
+
+.blogs:hover{
+box-shadow: 0 7px 7px 0 rgba(50, 68, 159, 0.14), 0 6px 10px 0 rgba(149, 14, 131, 0.12), 0 8px 6px -2px rgba(61, 45, 181, 0.2);
+}
+
+.hoverable:hover{
+  box-shadow: 0 7px 7px 0 rgba(28, 50, 160, 0.14), 0 6px 10px 0 rgba(14, 14, 149, 0.12), 0 8px 6px -2px rgba(31, 12, 174, 0.2);
+}
+
+
 /* ------------------------navbar-------------------------- */
 .navbar {
   height: 58px;
@@ -426,7 +442,38 @@ footer{
 .go-right{
     float: right;
 }
-  
+
+.bug-button{
+    background-color: #5f788a;
+    border: 1px solid #566d7d;
+    color: white;
+}
+
+.bug-button:hover{
+    background-color: #4a5f6e;
+    color: white;
+}
+
+/*-------------------features-------------------------------*/
+.features{
+    background-color: #ae1b89;
+    border: 1px solid #9b187a;
+    color: white
+}
+
+.feature-button{
+    background-color: #ae1b89;
+    border: 1px solid #9b187a;
+    color: white
+}
+
+.feature-button:hover{
+    background-color: #87196c;
+    color: white;
+}
+
+
+
 /* media queries */
 @media (max-width: 500px) {
     .navbar-brand{
