@@ -1,14 +1,160 @@
+/* global settings */
 * {
  box-sizing: border-box;
 }
+
 *:before,
 *:after {
  box-sizing: border-box;
 }
+
 html,
 body {
    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+   min-height: 100vh;
+   flex-direction: column;
+   font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: inherit;
+}
+
+.main-container {
+  flex: 1 0 auto;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.alert{
+  text-align: center;
+}
+
+.shadow{
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.error-msg{
+    color: red;
+}
+
+.messages{
+  background-color: #f1f1f1;
+}
+
+.home-page{
+height: 500px;
+}
+
+.pages{
+height: 300px;
+}
+
+/* ------------------------navbar-------------------------- */
+.navbar {
+  height: 58px;
+  width: 100%;
+  position: fixed;
+  color: aqua;
+  background: none;
+  letter-spacing: 0.025em;
+  transition: background-color 0.2s linear;
+  padding: 0;
+}
+
+.solid-nav {
+    background-color: #52534E;
+    transition: background-color 0.2s linear;
+    color: aqua;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  }
+
+.nav-link{
+  color: aqua;
+}
+
+.nav-link:hover{
+  color: rgb(202, 35, 35);
+}
+
+a:hover{
+  color:rgb(202, 35, 35);
+}
+
+.navbar-brand{
+    padding: 10px 10px;
+    font-size: 1.7rem;
+    transition: font-size 0.2s linear;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.smaller-font{
+  font-size: 1.5rem;
+}
+
+.nav-link.active{
+  color: #31de79;
+}
+
+.icon-bar {
+    background-color: rgb(193, 64, 64);
+}
+
+.navbar-collapse{
+  height: auto;
+}
+
+.dropdown-menu-center {
+  right: auto;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  margin-left:5px;
+  margin-right: 3px;
+}
+
+.drop-item{
+  color: aqua;
+}
+
+.drop-item:hover{
+  color: rgb(208, 48, 61);
+  background-color: rgb(85, 85, 93);
+}
+
+.dropdown-background{
+  background-color: rgb(85, 85, 93);
+}
+
+.navbar-toggler{
+  color: aqua;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #1984c2;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+/* media queries */
+@media (max-width: 991.98px) {
+ 
+  .navbar-collapse{
+    background: #515050;
+    }
+
+  .site-header .navbar-nav .nav-link {
+    border-top: 1px dashed;
+    }
 }
