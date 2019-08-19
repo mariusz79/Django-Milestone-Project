@@ -496,6 +496,21 @@ footer{
   margin-bottom: 20px;
 }
 
+/*-------------------------stripe------------------------------*/
+.stripe-button-el {
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.stripe-button:hover {
+  animation: none;
+}
+
+.pay-card{
+  text-align: center;
+}
+
 /* media queries */
 @media (max-width: 500px) {
     .navbar-brand{
