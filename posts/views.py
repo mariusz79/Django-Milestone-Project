@@ -6,7 +6,6 @@ from .forms import BlogPostForm, CommentForm
 from django.contrib import auth, messages
 from django.contrib.auth.models import User, Group
 from django.contrib.admin.views.decorators import staff_member_required
-from home.views import index
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
