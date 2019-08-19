@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'contact',
     'donations',
     'stripe',
+    'search'
 ]
 
 MIDDLEWARE = [
