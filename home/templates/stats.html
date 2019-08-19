@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block page_title %}Stats{% endblock %}
+
+{% block background %}
+<div class="first-container pages">
+    <div class="baner ">
+        <div class="image-darker">
+            <img src="/media/banners/b (16a).jpg" class="background-short "></div>
+        <div class="banner-title-down text-center ">
+
+
+            <h3 class="text-white ">Statistics</h3>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock background %}
+{% block content %}
+
+<div class="container mt-5 mb-5 text-center">
+
+
+
+
+    <h4>To offer transparency to our users, we have created this page that contains graphs showing how many of the bugs
+        added
+        by users have been solved and how many features have been implemented to our app.</h4>
+    <hr>
+    <!---------------------------Charts---------------------------------------------------->
+    <div class="row mt-3 mb-3">
+        <div class="col s12 m6 ">
+            <div class="card shadow">
+                <div class="collection-header">Bugs</div><canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <div class="col s12 m6 ">
+            <div class="card shadow">
+                <div class="collection-header">Features</div><canvas id="myChart1"></canvas>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+
+<script type="text/javascript">
+    Chart.defaults.global.responsive = true;
+    var ctx = $('#myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        responsive: true,
+        data: {
+            labels: ['To Do', 'Doing', 'Done'],
+            datasets: [{
+                label: 'Bugs',
+                data: ["{{bugs_todo}}", "{{bugs_doing}}", "{{bugs_done}}"],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctx = $('#myChart1');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        responsive: true,
+        data: {
+            labels: ['To Do', 'Doing', 'Done'],
+            datasets: [{
+                label: 'Features',
+                data: ["{{features_todo}}", "{{features_doing}}", "{{features_done}}"],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(75, 134, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(75, 134, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: 'rgb(255, 99, 132)',
+                }
+            },
+            scales: {
+                yAxes: [{
+                    display: false
+                }]
+            }
+        }
+    });
+
+
+
+
+</script>
+
+{% endblock content %}
