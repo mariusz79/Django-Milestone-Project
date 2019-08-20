@@ -623,6 +623,16 @@ h2::after {
 	bottom: -10px;
 }
 
+.yes-icon{
+  color: rgb(32, 216, 32);
+}
+
+.no-icon{
+  color: rgb(238, 27, 38);
+}
+
+
+
 /* media queries */
 @media (max-width: 500px) {
     .navbar-brand{

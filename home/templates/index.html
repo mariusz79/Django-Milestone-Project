@@ -77,4 +77,93 @@
         </div>
     </div>
 </section>
+
+<div class="container">
+    <h2 data-aos="fade-up">Choose Your Option</h2>
+    <div class="row center mb-4">
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-4 shadow text-center hoverable" data-aos="fade-up">
+                <div class="card-header ">
+                    <h4 class="my-0  ">Visitor</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pb-0">Free </h1>
+                    <ul class=" list-unstyled  ">
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Bugs </li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Bugs</li>
+
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Posts</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Bugs</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Posts</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Bugs</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Features</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Features</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Features</li>
+
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-info">Browse</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-4 shadow text-center hoverable" data-aos="fade-up" data-aos-delay="500">
+                <div class="card-header bugs">
+                    <h4 class="my-0  ">Member</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pb-0">Free </h1>
+                    <ul class="list-unstyled  ">
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Bugs </li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Bugs</li>
+
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Posts</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Create Bugs</li>
+
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Bugs</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Posts</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Features</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Features</li>
+                        <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Features</li>
+
+                    </ul>
+                    <a class="btn btn-outline-danger btn-lg btn-block" href="{% url 'registration' %}">Sign Up </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-4 shadow text-center hoverable" data-aos="fade-up" data-aos-delay="700">
+                <div class="card-header features">
+                    <h4 class="my-0 ">Sponsor</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title card-title pb-0">50 <small class="text-muted">&euro;</small></h1>
+                    <ul class="list-unstyled ">
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Bugs </li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Bugs</li>
+
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Posts</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Create Bugs</li>
+
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Bugs</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Posts</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Create Features</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Features</li>
+                        <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Features</li>
+                    </ul>
+
+                    <a class="btn btn-outline-danger btn-lg btn-block" href="{% url 'registration' %}">Sign Up </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
 {% endblock content %}
