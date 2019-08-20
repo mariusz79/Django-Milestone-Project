@@ -631,6 +631,77 @@ h2::after {
   color: rgb(238, 27, 38);
 }
 
+.parallax {
+  /* The image used */
+  background-image: url("https://cdn.pixabay.com/photo/2018/02/23/04/38/laptop-3174729_1280.jpg");
+  /* Set a specific height */
+  height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carousel {
+	margin: 50px auto;
+}
+
+.carousel .item {
+	color: #999;
+	font-size: 14px;
+  text-align: center;
+	overflow: hidden;
+  min-height: 290px;
+}
+
+.carousel .item .img-box {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+
+.carousel .img-box img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+
+.carousel .testimonial {
+  padding-top: 2rem;
+  color: rgb(255, 255, 255);
+  font-size: 1.4rem;
+}
+  
+.carousel .overview  {
+	text-transform: uppercase;
+	color: white;
+}
+ 
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 30px;
+	height: 10px;
+	margin: 1px 3px;
+}
+
+.carousel-indicators li {	
+	background: #7cb0b5;
+	border-color: transparent;
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+
+.carousel-indicators li.active {	
+	background:#118aa1;	
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+
+.carousel-indicators{
+  position: relative;
+}
 
 
 /* media queries */
