@@ -205,4 +205,39 @@
     </div>
 
 </div>
+
+
+<div class="container blog">
+    <h2 data-aos="fade-up">Our Blog</h2>
+    <div class="row ">
+
+        <div class="card-deck">
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="card blog-card " data-aos="fade-up">
+                    <img src="/media/{{ post.image }}" class="card-img-top" alt="...">
+                    <span class="blog-card-date">{{ post.published_date|date:"F d, Y" }}</span>
+                    <div class="card-body pl-0">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text text-muted">{{ post.content|truncatewords:30 }}</p>
+                    </div>
+                    <div class="card-footer pl-0 blog-card-footer">
+                        <a href="{% url 'post_detail' post.id %}" class="">Read more</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
 {% endblock content %}

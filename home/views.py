@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from bugs.models import Bug
 from features.models import Feature
+from posts.models import Post
+from django.utils import timezone
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    posts = Post.objects.filter(
+        published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    return render(request, 'index.html', {'posts': posts})
 
 def stats(request):
     """ view to render search results """
