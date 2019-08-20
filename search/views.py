@@ -27,13 +27,13 @@ def search(request):
     if search_type == "bugs":
         posts = Bug.objects.filter(
         Q(tag__icontains=request.GET['q']) |
-        Q(content__icontains=request.GET['q']) |
+        Q(description__icontains=request.GET['q']) |
         Q(title__icontains=request.GET['q'])
         ).distinct().order_by('-id')
     if search_type == "features":
         posts = Feature.objects.filter(
         Q(tag__icontains=request.GET['q']) |
-        Q(content__icontains=request.GET['q']) |
+        Q(description__icontains=request.GET['q']) |
         Q(title__icontains=request.GET['q'])
         ).distinct().order_by('-id')
     if search_type == "posts":

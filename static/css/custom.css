@@ -472,6 +472,12 @@ footer{
     color: white;
 }
 
+.feature-card {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border: 1px solid #87196c;
+}
 /*------------------profile--------------------------*/
 .account-img {
   max-height: 125px;
@@ -511,6 +517,34 @@ footer{
   text-align: center;
 }
 
+/*------------------------search--------------------------------------*/
+.inner-form{    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.bar-search{
+  border-radius: 0;
+}
+
+.search-button{
+   border-radius: 0;
+   width: inherit;
+ }
+
+
 /* media queries */
 @media (max-width: 500px) {
     .navbar-brand{
@@ -519,8 +553,8 @@ footer{
 }
 
 @media (max-width: 576px) {
-   .inner-form{ 
-    display: inline;
+.inner-form{ 
+  display: inline;
 }
 
 .blog{

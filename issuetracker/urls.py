@@ -22,6 +22,7 @@ from bugs import urls as bugs_urls
 from features import urls as features_urls
 from contact import urls as contact_urls
 from donations import urls as donations_urls
+from search import urls as search_urls
 from django.views.static import serve
 from .settings import MEDIA_ROOT, STATIC_ROOT
 
@@ -35,5 +36,5 @@ urlpatterns = [
     url(r'^bugs/', include(bugs_urls)),
     url(r'^features/', include(features_urls)),
     url(r'^donations/', include(donations_urls)),
-    
+    url(r'^search/', include(search_urls)),
 ]
