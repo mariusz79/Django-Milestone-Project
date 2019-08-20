@@ -37,4 +37,5 @@ urlpatterns = [
     url(r'^features/', include(features_urls)),
     url(r'^donations/', include(donations_urls)),
     url(r'^search/', include(search_urls)),
+    url(r'^contact/', include(contact_urls)),
 ]

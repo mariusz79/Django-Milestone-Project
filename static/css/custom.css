@@ -752,7 +752,6 @@ h2::after {
 
 .staff .text .position {
     text-transform: uppercase;
-    color: black;
     color: #31de79;
     display: block;
     letter-spacing: 1px;
@@ -764,19 +763,19 @@ h2::after {
 }
 
 .staff1{
-  background-image: url("/media/staff/s1.jpg");
+  background-image: url("/static/img/staff/s1.jpg");
 }
 
 .staff2{
-  background-image: url("/media/staff//s2.jpg");
+  background-image: url("/static/img/staff/s2.jpg");
 }
 
 .staff3{
-  background-image: url("/media/staff/s3.jpg");
+  background-image: url("/static/img/staff/s3.jpg");
 }
 
 .staff4{
-  background-image: url("/media/staff/s4.jpg");
+  background-image: url("/static/img/staff/s4.jpg");
 }
 
 .staff .img {
@@ -789,21 +788,7 @@ h2::after {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
 
-.staff:hover {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform:translateZ(0) scale(1.10); /* Safari and Chrome */
-    -moz-transform:scale(1.10); /* Firefox */
-    -ms-transform:scale(1.10); /* IE 9 */
-    -o-transform:translatZ(0) scale(1.10); /* Opera */
-    transform:translatZ(0) scale(1.10);
 }
 
 .img{

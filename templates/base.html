@@ -69,7 +69,7 @@
         
                                 <a class="dropdown-item drop-item" href="{% url 'sort_by' %}">Blog &nbsp;
                                     <i class="fas fa-pencil-alt"></i></a>
-                                <a class="dropdown-item drop-item" href="">Stats &nbsp; <i
+                                <a class="dropdown-item drop-item" href="{% url 'stats' %}">Stats &nbsp; <i
                                         class="fas fa-chart-line"></i></a>
         
                             </div>
@@ -134,19 +134,19 @@
                     <ul class="menu">
                         <span>Menu</span>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{% url 'home' %}">Home</a>
                         </li>
     
                         <li>
-                            <a href="#">Contact Us</a>
+                            <a href="{% url 'contact' %}">Contact Us</a>
                         </li>
     
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="{% url 'sort_by' %}">Blog</a>
                         </li>
     
                         <li>
-                            <a href="#">Stats </a>
+                            <a href="{% url 'stats' %}">Stats </a>
                         </li>
                     </ul>
                 </div>
@@ -243,7 +243,7 @@
                 $('.message').fadeOut('slow');
             }, 3000); // <-- time in milliseconds, 1000 =  1 sec
 
-            // delete message
+            
 
 
         });
