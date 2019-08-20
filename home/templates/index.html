@@ -5,7 +5,7 @@
 <div class="first-container home-page">
     <div class="baner ">
         <div class="image-darker">
-            <img src="/media/banners/b (16).jpg" class="background-high "></div>
+            <img src="/media/banners/b2.jpg" class="background-high "></div>
         <div class="banner-title-up text-center">
 
             <h1 class="text-white d-none d-lg-block">Better service starts here</h1>
@@ -24,5 +24,57 @@
 {% endblock background %}
 
 {% block content %}
-This is a home page.
+<section id="services">
+    <div class="container" >
+        <h2 data-aos="fade-up">Our Services</h2>
+        <div class="row ">
+            <div class="col-sm-6 col-md-6 col-lg-6 center">
+                <div class="card shadow pt-3 mb-2 hoverable service" data-aos="fade-right">
+                    <div class="center">
+                        <div class="octagon center"><i class="fas fa-bug  octagon-icon"></i></div>
+                    </div>
+                    <div class="  pt-3 text-center">
+                        <div>
+                            <h5 class="mb-2 text-danger">FIXING BUGS</h5>
+
+                            <div class="faded mb-3">
+
+                                <p>Find a bug in the app? Create a new ticket in our Issue Tracker! Creating and
+                                    commenting bugs is free! We will try to
+                                    fix the bug as soon as possible. To help us prioritize our work, users are able to
+                                    upvote bugs (by signifying ‘I have this too’).
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 center">
+                <div class="card shadow pt-3 mb-2 hoverable service" data-aos="fade-left">
+                    <div class="center">
+                        <div class="octagon center"><i class="far fa-gem octagon-icon"></i></div>
+                    </div>
+                    <div class="  pt-3 text-center">
+                        <div>
+                            <h5 class="mb-2 text-danger">ADDING FEATURES</h5>
+
+                            <div class="faded mb-3 ">
+
+                                <p>To upvote a feature request, users need to donate some money (with a minimum amount
+                                    of 50Euro) to pay for our
+                                    time in working on it. In turn, we promise always to spend at least 50% of our time
+                                    working on developing the
+                                    features.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
 {% endblock content %}
