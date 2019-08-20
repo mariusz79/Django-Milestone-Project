@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .choices import STATUS_CHOICES
+from bugs.choices import STATUS_CHOICES
 # Create your models here.
 
 class Bug(models.Model):

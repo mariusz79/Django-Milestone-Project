@@ -1,6 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} {% block page_title %}Home Page{% endblock %}
 
-{% block page_title %}Home Page{% endblock page_title%}
+{% block background %}
+
+<div class="first-container home-page">
+    <div class="baner ">
+        <div class="image-darker">
+            <img src="/media/banners/b (16).jpg" class="background-high "></div>
+        <div class="banner-title-up text-center">
+
+            <h1 class="text-white d-none d-lg-block">Better service starts here</h1>
+            <h3 class="text-white  mt-3 mb-5">Create, upvote, track bugs and features.</h3>
+
+            <a class="btn btn-outline-danger  " href="{% url 'registration' %}">Free account&nbsp; <i
+                    class="fas fa-user-plus"></i></a>
+            <a class="btn btn-outline-info  " href="#services">Learn more&nbsp; <i
+                    class="fas fa-angle-double-down"></i></a>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock background %}
 
 {% block content %}
 This is a home page.
