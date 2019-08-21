@@ -179,6 +179,9 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'JPEG'
+DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
