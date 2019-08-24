@@ -10,6 +10,7 @@
 
 html,
 body {
+   overflow-x: hidden;
    display: flex;
    min-height: 100vh;
    flex-direction: column;
@@ -843,12 +844,15 @@ h2::after {
 .go-right{
   float: none;
 }
- 
+
+.feature-card {
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
 }
 
 @media (max-width: 767px) {
-
-
 .article-img {
   height: auto;
   width: auto;
@@ -859,6 +863,7 @@ h2::after {
 }
  
 }
+
 @media (max-width: 991.98px) {
  
    .navbar-collapse{

@@ -14,14 +14,17 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = form.cleaned_data['subject']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, email, [email_address])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('email')
+            if request.user.is_authenticated:
+                subject = form.cleaned_data['subject']
+                email = request.user.email
+                message = form.cleaned_data['message']
+                try:
+                    send_mail(subject, message, email, [email_address])
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+                return redirect('email')
+            else:
+                return redirect('user-login')
     return render(request, "contact.html", {'form': form})
 
 
