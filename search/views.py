@@ -5,6 +5,7 @@ from features.models import Feature
 from django.views.generic import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.contrib import messages
 
 # Create your views here.
 
@@ -20,7 +21,8 @@ def search(request):
         search_type = type_session
 
     
-    if request.GET['q'] == "":
+    if len(request.GET['q']) < 2 :
+        messages.info(request, "Type an expression to search")
         return redirect('search')
 
 

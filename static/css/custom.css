@@ -155,10 +155,14 @@ box-shadow: 0 7px 7px 0 rgba(50, 68, 159, 0.14), 0 6px 10px 0 rgba(149, 14, 131,
 
 .nav-link:hover{
   color: rgb(202, 35, 35);
+  border-bottom: 2px solid aqua;
+  border-top: 2px solid aqua;
 }
 
 a:hover{
   color:rgb(202, 35, 35);
+  border-bottom: 2px solid aqua;
+  border-top: 2px solid aqua;
 }
 
 .navbar-brand{
@@ -501,6 +505,8 @@ footer{
   width: 800px;
   border-radius: 3px;
   margin-bottom: 20px;
+  margin-left:0.2rem;
+  margin-right:0.2rem;
 }
 
 /*-------------------------stripe------------------------------*/
@@ -523,17 +529,6 @@ footer{
     display: flex;
     justify-content: center;
     width: 100%;
-}
-
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-
-  > .col,
-  > [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 
 .bar-search{
