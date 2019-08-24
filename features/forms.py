@@ -4,7 +4,7 @@ from .models import Feature, FeatureComment
 class FeatureForm(forms.ModelForm):
     class Meta:
         model = Feature
-        fields = ('title', 'description', 'tag', 'published_date')
+        fields = ('title', 'description', 'published_date')
 
 
 class FeatureCommentForm(forms.ModelForm):
@@ -16,4 +16,4 @@ class FeatureCommentForm(forms.ModelForm):
 
     class Meta:
         model = FeatureComment
-        fields = ('email', 'text',)
+        fields = ('text',)

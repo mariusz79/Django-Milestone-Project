@@ -55,6 +55,7 @@ def bug_detail(request, pk):
             # create comment object but do not save to database
             new_comment = form.save(commit=False)
             new_comment.author = request.user
+            new_comment.email = request.user.email
             # assign ship to the comment
             new_comment.bug = bug
             # save

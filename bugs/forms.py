@@ -4,7 +4,7 @@ from .models import Bug, BugComment
 class BugForm(forms.ModelForm):
     class Meta:
         model = Bug
-        fields = ('title', 'description', 'tag', 'published_date')
+        fields = ('title', 'description', 'published_date')
 
 
 class BugCommentForm(forms.ModelForm):
@@ -16,4 +16,4 @@ class BugCommentForm(forms.ModelForm):
 
     class Meta:
         model = BugComment
-        fields = ('email', 'text',)
+        fields = ('text',)
