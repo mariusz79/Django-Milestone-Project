@@ -162,7 +162,7 @@ def feature_detail(request, pk):
             new_comment.author = request.user
             new_comment.email = request.user.email
             # assign ship to the comment
-            new_comment.Feature = Feature
+            new_comment.feature = feature
             # save
             new_comment.save()
             return redirect(feature_detail, feature.pk)
