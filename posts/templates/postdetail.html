@@ -53,9 +53,9 @@
                     <span class="post-info"><span class="boldtext">Tag:</span> {{ post.tag }} </span>
                     <span class="post-info"><span class="boldtext">Likes:</span> {{ post.likes }} </span>
                 </div>
-                <p><a href=" " class="btn btn-info">Back to Blog</a></p>
+                <p><a href="{% url 'sort_by' post.id %}" class="btn btn-info">Back to Blog</a></p>
                 {% if user.is_authenticated and user == post.author %}
-                <a href=" " class="btn btn-info">Edit Post</a>
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-info">Edit Post</a>
                 {% endif %}
                 {% if user.is_authenticated %}
                 {% if is_liked == False %}
