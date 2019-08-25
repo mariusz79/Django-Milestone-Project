@@ -18,7 +18,9 @@ def contact(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, email, [email_address])
+                message_body = 'From:  email: {email} \n subject: {subject} \n message: {message}'.format(email=email, 
+            subject=subject, message=message)
+                send_mail(subject, message_body, email, [email_address])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('contact_success')
