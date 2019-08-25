@@ -215,7 +215,7 @@
             {% for post in posts %}
             <div class="col-md-4">
                 <div class="card blog-card " data-aos="fade-up">
-                    <img src="/media/{{ post.image }}" class="card-img-top" alt="...">
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="...">
                     <span class="blog-card-date">{{ post.published_date|date:"F d, Y" }}</span>
                     <div class="card-body pl-0">
                         <h5 class="card-title">{{ post.title }}</h5>

@@ -49,7 +49,7 @@
     <div class="row blogs shadow">
         <div class="col-md-4 col-sm-12 text-center">
             <a class="story-img" href="{% url 'post_detail' post.id %}">
-                <img class="article-img img-fluid img-thumbnail shadow" src="/media/{{ post.image }}">
+                <img class="article-img img-fluid img-thumbnail shadow" src="{{ post.image.url }}">
             </a>
 
 

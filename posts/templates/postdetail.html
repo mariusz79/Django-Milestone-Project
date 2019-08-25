@@ -26,17 +26,17 @@
 
         <div class="col  pt-5 ">
             {% if post.image %}
-            <img class="img-blogpost center img-thumbnail" src="/media/{{ post.image }}">
+            <img class="img-blogpost center img-thumbnail" src="{{ post.image.url }}">
             <span class="post-info published"><span class="boldtext">Published on:</span> {{ post.published_date }}
             </span>
             {% endif %}
             <h3 class="post-title pt-3 pb-3">{{ post.title }}</h3>
 
-            <a class="" href="#">
+            <span class=""  ">
                 <img src="{{ post.author.profile.image.url|default:'/media/img/default.jpg' }}"
                     class="img-circle comment-avatar">
 
-            </a>
+            </span>
             <p><span class="boldtext">Author:</span>
                 {% if user.is_authenticated and user.username == post.author.username %}
                 <span class="post-info"> <a class="mr-2" href="{% url 'profile'  %} ">{{ post.author }}</a></span>

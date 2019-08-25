@@ -53,6 +53,11 @@
                 </form>
             </span>
         </div>
+
+        <div class="col-lg-9 col-md-9 col-sm-6">
+            <a href="{% url 'new_bug'  %}" class="btn bug-button go-right add-feature">Create Bug</a>
+        </div>
+
     </div>
 
     {% for bug in object_list %}
