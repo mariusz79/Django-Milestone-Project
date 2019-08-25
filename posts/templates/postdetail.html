@@ -26,7 +26,7 @@
 
         <div class="col  pt-5 ">
             {% if post.image %}
-            <img class="img-blogpost center img-thumbnail" src="{{ object.image.url }}">
+            <img class="img-blogpost center img-thumbnail" src="/media/{{ post.image }}">
             <span class="post-info published"><span class="boldtext">Published on:</span> {{ post.published_date }}
             </span>
             {% endif %}
@@ -53,7 +53,7 @@
                     <span class="post-info"><span class="boldtext">Tag:</span> {{ post.tag }} </span>
                     <span class="post-info"><span class="boldtext">Likes:</span> {{ post.likes }} </span>
                 </div>
-                <p><a href="{% url 'sort_by' post.id %}" class="btn btn-info">Back to Blog</a></p>
+                <p><a href="{% url 'sort_by' %}" class="btn btn-info">Back to Blog</a></p>
                 {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-info">Edit Post</a>
                 {% endif %}
