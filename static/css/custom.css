@@ -154,13 +154,13 @@ box-shadow: 0 7px 7px 0 rgba(50, 68, 159, 0.14), 0 6px 10px 0 rgba(149, 14, 131,
 }
 
 .nav-link:hover{
-  color: rgb(202, 35, 35);
+  color: rgb(241, 91, 91);
   border-bottom: 2px solid aqua;
   border-top: 2px solid aqua;
 }
 
 a:hover{
-  color:rgb(202, 35, 35);
+  color:rgb(241, 91, 91);
   border-bottom: 2px solid aqua;
   border-top: 2px solid aqua;
 }
@@ -203,7 +203,7 @@ a:hover{
 }
 
 .drop-item:hover{
-  color: rgb(208, 48, 61);
+  color: rgb(241, 91, 91);;
   background-color: rgb(85, 85, 93);
 }
 
@@ -257,7 +257,7 @@ footer{
 }
 
 .address li a:hover , .menu li a:hover{
-    color: #da3e44;
+    color: rgb(241, 91, 91);;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -265,7 +265,7 @@ footer{
 }
 
 .address .fa{
-    color: #da3e44;
+    color: rgb(241, 91, 91);;
     margin-right: 10px;
     font-size:18px;
 }
@@ -593,7 +593,7 @@ section {
 }
 
 .octagon-icon:hover{
-  color: #d13e4a;
+  color: rgb(241, 91, 91);
   font-size: 3.2rem;
 }
 
