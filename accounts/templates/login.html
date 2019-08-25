@@ -1,46 +1,29 @@
-{% extends 'base.html' %} {% block page_title %}Login Page{% endblock %}
+{% extends 'base.html' %} 
+{% block page_title %}Login Page{% endblock %}
 {% load bootstrap_tags %}
 
-
+<!------------------------------Banner------------------------------->
 {% block background %}
-
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b1.jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b1.jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Accounts/Login</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
 
-
-
-
-
-
 {% block content %}
-
-
-
-
-
+<!------------------------------Login form------------------------------->
 <div class="container">
-
     <div class="row justify-content-center mt-5 mb-5">
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow mt-3">
                 <h3 class="card-header center">Log in</h3>
                 <div class="card-body">
-
                     <form method="post">
                         {% csrf_token %}
                         {{ form | as_bootstrap }}
@@ -56,10 +39,7 @@
                     </small>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
-
 {% endblock content %}

@@ -2,30 +2,24 @@
 {% load bootstrap_tags %}
 {% block page_title %}Feature Detail{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Features/Feature Detail</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
 <div class="container container-1000px">
     <div class="row mt-5">
-
         <div class="col card shadow mb-4 ml-1 mr-1">
-
             <div class="card-header features center"><i class="far fa-gem card-header-font"></i>
                 <h4 class="pl-4 pr-4">FEATURE</h4> <i class="far fa-gem card-header-font"></i>
             </div>
@@ -45,18 +39,11 @@
                         {% else %}
                         <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
                                 href=" {% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a>,</span>
-
                         {% endif %}
 
                         {% if feature.author in group %}
                         <span class="sponsor">SPONSOR</span>
-
-
-
                         {% endif %}
-
-
-
 
                         <span class="post-info"><span class=" icon-blog"><i class="far fa-calendar-alt"></i>
                                 {{ feature.published_date }}
@@ -76,6 +63,7 @@
                     {{ feature.get_status_display }}</span>
                 <hr>
                 <div class="mb-3">
+                    <a href="{% url 'get_features' %}" class="btn btn-info">Back to Features</a>
                     {% if user.is_authenticated and user == feature.author %}
                     <a href="{% url 'edit_feature' feature.id %}" class="btn btn-info">Edit Feature</a>
                     {% endif %}
@@ -87,26 +75,18 @@
 
                     {% endif %}
                     {% endif %}
-
                 </div>
             </div>
-
         </div>
     </div>
 
-    <!-- Comments Form -->
-
-
-
-
+<!------------------------------Comments------------------------------->
     <div class="mb-2">
         {{feature.comments.all.count}} Comment(s)
     </div>
     {% for comment in feature.comments.all %}
     <div class="row  card mb-2 ml-1 mr-1">
         <ul class="media-list">
-
-
             <li class="media">
                 <span class="pull-left">
                     <img src="{{ comment.author.profile.image.url|default:'/media/img/default.jpg' }}" alt=""
@@ -133,8 +113,8 @@
 
     {% endfor %}
 
+    <!------------------------------comment form------------------------------->
     <div class="row center">
-
         <div class="col-sm-6 mb-3 mt-5">
             {% if user.is_authenticated  and user in group%}
             <h5 class="center">Leave a comment</h5>
@@ -143,16 +123,11 @@
                     {{ comment_form|as_bootstrap }}
                     {% csrf_token %}
                     <span class="center"><button class="btn btn-primary" type="submit">Add comment</button></span>
-
                 </form>
             </span>
             {% endif %}
             <hr>
-
-
-
         </div>
     </div>
 </div>
-
 {% endblock %}

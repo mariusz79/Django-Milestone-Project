@@ -1,92 +1,33 @@
-{% extends 'base.html' %} {% block page_title %}Contact Success{% endblock %}
+{% extends 'base.html' %}
+ {% block page_title %}Contact Success{% endblock %}
 {% load bootstrap_tags %}
+
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Contact/Success</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
 
 {% block content %}
-
-
 <div class="container">
-
     <div class="row justify-content-center mt-3 mb-5">
-
         <div class="card shadow mt-5 success-card">
             <h3 class="card-header text-center">Thank You for Contacting Us!</h3>
             <div class="card-body">
-
-
                 <div class="text-center">You email has been succesfully submitted and we will get in touch with you
                     shortly.</div>
-
-
-
                 <hr>
-
-
-
                 <div class="text-center "> <a class=" " href="{% url 'home' %}">Back to Home Page</a> </div>
-
-
-
-
             </div>
-
         </div>
     </div>
 </div>
 {% endblock %}
-
-<h2>Thank You for donating <strong>{{amount}} Euro</strong>!</h2>
-<div class="container">
-
-    <div class="text-center">
-        <h4>Congratulations! You are a PREMIUM user now!</h4>
-
-    </div>
-    <div class="text-center">
-        <div>You can go to Features section to submit a new Feature or upvote and comment existing Features.</div>
-    </div>
-    <div class="justify-content-center mt-3">
-        <a class="btn feature-button" href="{% url 'get_features' %}">Go to Features</a>
-
-    </div>
-</div>
-
-
-<div class="container">
-
-    <div class="row justify-content-center">
-
-        <div class="card shadow mt-5 success-card">
-            <h3 class="card-header text-center">Thank You for Contacting Us!</h3>
-            <div class="card-body">
-
-
-                <div class="text-center">You email has been succesfully submitted and we will get in touch with you
-                    shortly.</div>
-
-                <hr>
-
-                <div class="text-center "> <a class=" " href="{% url 'home' %}">Back to Home Page</a> </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>

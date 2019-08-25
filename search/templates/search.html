@@ -1,30 +1,24 @@
 {% extends 'base.html'%}
 {% load my_tags %}
-
 {% block page_title %}Search{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
             <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Search</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
 
 <div class="container">
-
+<!------------------------------Search form----------------------------->
     <div class="row justify-content-center mt-5 mb-5">
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow mt-5">
@@ -46,20 +40,14 @@
                                 {% endfor %}
                             </select>
                         </div>
-
                         <div class="form-group col-sm-1">
                             <button class="btn btn-success   search-button  " type="submit"><i
                                     class="fas fa-search"></i></button>
                         </div>
-
                     </form>
-
                 </div>
-
-
             </div>
         </div>
     </div>
-
 </div>
 {% endblock content %}

@@ -11,7 +11,7 @@ from django.contrib import messages
 
 
 def search(request):
-    """ view to render the minimal search template """
+    """ view to render  search template """
 
     type_session = request.session.get('type', None)
 

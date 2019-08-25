@@ -11,8 +11,7 @@ def index(request):
     return render(request, 'index.html', {'posts': posts})
 
 def stats(request):
-    """ view to render search results """
-
+    """ view to render charts"""
 
     bugs_todo = Bug.objects.filter(status=1).count()
     bugs_doing = Bug.objects.filter(status=2).count()

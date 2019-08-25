@@ -27,11 +27,13 @@ class Post(models.Model):
 
 
 class Like(models.Model):
+    """Upvoting Posts"""
     liker_user = models.ForeignKey(User, null=True)
     liked_post = models.ForeignKey(Post, null=True)
 
 
 class Comment(models.Model):
+    """Comments on post"""
     post = models.ForeignKey(Post,
                              on_delete=models.CASCADE,
                              related_name='comments')

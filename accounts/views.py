@@ -82,7 +82,7 @@ def user_profile(request):
 
 
 def other_user_profile(request, username):
-    """ function base view to display user details full screeen """
+    """ The others user's profile page """
 
     # get user object using username
     user = get_object_or_404(User, username=username)

@@ -8,7 +8,7 @@ from django.contrib.auth.models import User, Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def sort_features(request):
-    """ view to render the minimal search template """
+    """ view to render all features template """
 
     type_session = request.session.get('type', None)
 
@@ -19,9 +19,6 @@ def sort_features(request):
     search_type = request.GET.get('type')
     if search_type is None:
         search_type = type_session
-
-    # searching with blank will still work. However, it will cause errors with
-    # the pagination
 
     posts = Feature.objects.all().order_by('-id')
     if search_type == "date up":
@@ -39,6 +36,7 @@ def sort_features(request):
 
     page = request.GET.get('page', 1)
 
+    #pagination
     paginator = Paginator(posts, 5)
     try:
         posts = paginator.page(page)
@@ -62,9 +60,7 @@ def sort_features(request):
 @login_required
 def create_feature(request, pk=None):
     """
-    Create a view that allows us to create
-    or edit a post depending if the Post ID
-    is null or not
+    Create a feature
     """
     feature = get_object_or_404(Feature, pk=pk) if pk else None
     group = Group.objects.get(name="paid").user_set.all()
@@ -110,7 +106,7 @@ def edit_feature(request, pk=None):
 def liking_feature(request, pk):
     feature = get_object_or_404(Feature, pk=pk)
     if feature.status != 4:
-        #check if post is liked by user
+        #check if feature is liked by user
         if request.user.is_authenticated():
             is_liked = FeatureLike.objects.filter(
                 liked_feature=pk, liker_user=request.user).exists()
@@ -134,12 +130,12 @@ def liking_feature(request, pk):
 def feature_detail(request, pk):
     """
     Create a view that returns a single
-    Post object based on the post ID (pk) and
-    render it to the 'postdetail.html' template.
-    Or return a 404 error if the post is
+    Feature object based on the feature ID (pk) and
+    render it to the 'featuredetail.html' template.
+    Or return a 404 error if the feature is
     not found
     """
-    # get post object
+    # get  object
 
     feature = get_object_or_404(Feature, pk=pk) if pk else None
 
@@ -147,7 +143,7 @@ def feature_detail(request, pk):
     feature.views += 1
     feature.save()
 
-    #check if post is liked by user
+    #check if feature is liked by user
     if request.user.is_authenticated():
         is_liked = FeatureLike.objects.filter(liked_feature=pk, liker_user=request.user).exists()
     else:
@@ -161,7 +157,7 @@ def feature_detail(request, pk):
             new_comment = form.save(commit=False)
             new_comment.author = request.user
             new_comment.email = request.user.email
-            # assign ship to the comment
+            
             new_comment.feature = feature
             # save
             new_comment.save()

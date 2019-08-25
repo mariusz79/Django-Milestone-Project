@@ -1,40 +1,28 @@
 {% extends "base.html" %}
-
 {% load my_tags %}
-
 {% block page_title %}Features{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Features/All Features</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
-
-
-
 <div class="container container-1000px">
     <div class="row mt-4">
+        <!-----------------------------Sort by----------------------------->
         <div class="col-lg-3 col-md-3 col-sm-6">
             <span>
                 <h5 class=" ">Sort By</h5>
-
-
-
-
                 <form class=" " action="{% url 'get_features' %}" method="get">
                     <div class="form-group">
                         <select class="custom-select form-control select-search" name="type" type="submit"
@@ -48,22 +36,18 @@
                             {% endfor %}
                         </select>
                     </div>
-
-
                 </form>
             </span>
         </div>
-
+<!------------------------------Add feature------------------------------->
         <div class="col-lg-9 col-md-9 col-sm-6">
             <a href="{% url 'new_feature' %}" class="btn feature-button go-right add-feature">Add Feature</a>
         </div>
-
     </div>
 
+    <!-----------------------------All features------------------------------->
     {% for feature in object_list %}
-
     <div class="row feature-card hoverable shadow">
-
         <div class="col-8">
             <i class="far fa-gem card-header-font"></i>
             <a href="{% url 'feature_detail' feature.pk %}"><span class="wb">{{ feature.title|title }}</span></a> <span
@@ -95,14 +79,16 @@
 
     </div>
     {% endfor %}
+
+    <!------------------------------Pagination------------------------------>
     <div class="d-flex justify-content-center mb-2 mt-3">
         <div class="pagination">
             <span class="step-links">
                 {% if object_list.has_previous %}
                 <a class="btn btn-outline-info mb-4" href="?{% param_replace page=1 %}">First</a>
-                <a class="btn btn-outline-info mb-4" href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
                 {% endif %}
-
 
                 {% for num in object_list.paginator.page_range %}
                 {% if object_list.number == num %}
@@ -111,7 +97,6 @@
                 <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
                 {% endif %}
                 {% endfor %}
-
 
                 {% if object_list.has_next %}
                 <a class="btn btn-outline-info mb-4"

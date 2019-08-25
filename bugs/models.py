@@ -8,8 +8,6 @@ class Bug(models.Model):
     """
     A single bug
     """
-   
-
     title = models.CharField(max_length=200)
     description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
@@ -20,7 +18,6 @@ class Bug(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
-
     def __str__(self):
         return self.title
     
@@ -28,11 +25,13 @@ class Bug(models.Model):
         return self.__class__.__name__
 
 class BugLike(models.Model):
+    """Upvoting bug"""
     liker_user = models.ForeignKey(User, null=True)
     liked_bug = models.ForeignKey(Bug, null=True)
 
 
 class BugComment(models.Model):
+    """comments on bug"""
     bug = models.ForeignKey(Bug,
                              on_delete=models.CASCADE,
                              related_name='comments')

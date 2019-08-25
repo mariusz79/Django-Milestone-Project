@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Donation(models.Model):
+    """Simple donation model"""
     sponsor = models.ForeignKey(User, default=1)
     amount = models.IntegerField(blank=False)
     paid_date = models.DateTimeField(auto_now_add=True)

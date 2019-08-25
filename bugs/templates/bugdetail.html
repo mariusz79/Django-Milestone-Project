@@ -2,43 +2,33 @@
 {% load bootstrap_tags %}
 {% block page_title %}Bug Detail{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Bugs/Bug Detail</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
+
 {% block content %}
 <div class="container container-1000px">
     <div class="row mt-5">
-
         <div class="col card shadow mb-4 ml-1 mr-1">
-
             <div class="card-header bugs center"><i class="fas fa-bug card-header-font"></i>
                 <h4 class="pl-4 pr-4">BUG</h4> <i class="fas fa-bug card-header-font"></i>
             </div>
-
             <h3 class="post-title pt-3">{{ bug.title|title }}<span class="text-muted"> #{{bug.id}}</span></h3>
             <hr>
-
             <p class="text-justify post-content">{{ bug.description }}</p>
             <hr>
             <div class="col-xs-9">
-
-
-
                 <div class="post-info-background mb-4">
                     <div class="mb-2 mt-2">
                         {% if user.is_authenticated and user.username == bug.author.username %}
@@ -73,6 +63,7 @@
                     {{ bug.get_status_display }}</span>
                 <hr>
                 <div class="mb-3">
+                    <a href="{% url 'get_bugs' %}" class="btn btn-info">Back to Bugs</a>
                     {% if user.is_authenticated and user == bug.author %}
                     <a href="{% url 'edit_bug' bug.id %}" class="btn btn-info">Edit Bug</a>
                     {% endif %}
@@ -86,23 +77,16 @@
 
                 </div>
             </div>
-
         </div>
     </div>
 
-    <!-- Comments Form -->
-
-
-
-
+    <!------------------------------Comments------------------------------>
     <div class="mb-2">
         {{bug.comments.all.count}} Comment(s)
     </div>
     {% for comment in bug.comments.all %}
     <div class="row  card mb-2 ml-1 mr-1">
         <ul class="media-list">
-
-
             <li class="media">
                 <span class="pull-left">
                     <img src="{{ comment.author.profile.image.url|default:'/static/img/default.jpg' }}" alt=""
@@ -123,14 +107,13 @@
                 </div>
             </li>
         </ul>
-
     </div>
     {% empty %}
 
     {% endfor %}
 
+    <!------------------------------Comment form------------------------------->
     <div class="row center">
-
         <div class="col-sm-6 mb-3 mt-5">
             {% if user.is_authenticated %}
             <h5 class="center">Leave a comment</h5>
@@ -139,14 +122,10 @@
                     {{ comment_form|as_bootstrap }}
                     {% csrf_token %}
                     <span class="center"><button class="btn btn-primary" type="submit">Add comment</button></span>
-
                 </form>
             </span>
             {% endif %}
             <hr>
-
-
-
         </div>
     </div>
 </div>

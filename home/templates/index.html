@@ -1,31 +1,29 @@
-{% extends 'base.html' %} {% block page_title %}Home Page{% endblock %}
+{% extends 'base.html' %} 
+{% block page_title %}Home Page{% endblock %}
 
 {% block background %}
-
+<!------------------------------Banner------------------------------------>
 <div class="first-container home-page">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b2.jpg" class="background-high "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b2.jpg"
+                class="background-high "></div>
         <div class="banner-title-up text-center">
-
             <h1 class="text-white d-none d-lg-block">Better service starts here</h1>
             <h3 class="text-white  mt-3 mb-5">Create, upvote, track bugs and features.</h3>
-
             <a class="btn btn-outline-danger  " href="{% url 'registration' %}">Free account&nbsp; <i
                     class="fas fa-user-plus"></i></a>
             <a class="btn btn-outline-info  " href="#services">Learn more&nbsp; <i
                     class="fas fa-angle-double-down"></i></a>
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
 
 {% block content %}
+<!---------------------------------Services section------------------------------------->
 <section id="services">
-    <div class="container" >
+    <div class="container">
         <h2 data-aos="fade-up">Our Services</h2>
         <div class="row ">
             <div class="col-sm-6 col-md-6 col-lg-6 center">
@@ -36,15 +34,12 @@
                     <div class="  pt-3 text-center">
                         <div>
                             <h5 class="mb-2 text-danger">FIXING BUGS</h5>
-
                             <div class="faded mb-3">
-
                                 <p>Find a bug in the app? Create a new ticket in our Issue Tracker! Creating and
                                     commenting bugs is free! We will try to
                                     fix the bug as soon as possible. To help us prioritize our work, users are able to
                                     upvote bugs (by signifying ‘I have this too’).
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -58,26 +53,22 @@
                     <div class="  pt-3 text-center">
                         <div>
                             <h5 class="mb-2 text-danger">ADDING FEATURES</h5>
-
                             <div class="faded mb-3 ">
-
                                 <p>To upvote a feature request, users need to donate some money (with a minimum amount
                                     of 50Euro) to pay for our
                                     time in working on it. In turn, we promise always to spend at least 50% of our time
                                     working on developing the
                                     features.</p>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>
 
+<!---------------------------------Options section------------------------------------->
 <div class="container">
     <h2 data-aos="fade-up">Choose Your Option</h2>
     <div class="row center mb-4">
@@ -94,7 +85,6 @@
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Bugs</li>
-
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Posts</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Bugs</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Posts</li>
@@ -102,7 +92,6 @@
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Features</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Features</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Features</li>
-
                     </ul>
                     <button type="button" class="btn btn-lg btn-block btn-outline-info">Browse</button>
                 </div>
@@ -120,16 +109,13 @@
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Bugs</li>
-
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Posts</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Create Bugs</li>
-
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Bugs</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Posts</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Create Features</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Upvote Features</li>
                         <li><i class="far fa-times-circle no-icon"></i>&ensp;Comment Features</li>
-
                     </ul>
                     <a class="btn btn-outline-danger btn-lg btn-block" href="{% url 'registration' %}">Sign Up </a>
                 </div>
@@ -147,47 +133,48 @@
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Features</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;View Posts</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Bugs</li>
-
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Posts</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Create Bugs</li>
-
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Bugs</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Posts</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Create Features</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Upvote Features</li>
                         <li><i class="fas fa-check yes-icon"></i>&ensp;Comment Features</li>
                     </ul>
-
                     <a class="btn btn-outline-danger btn-lg btn-block" href="{% url 'registration' %}">Sign Up </a>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
+<!---------------------------------Testimonials section------------------------------------->
 <div class="parallax">
     <div class="container fluid">
         <div class="row">
             <div class="col-md-8   m-auto">
                 <h2 data-aos="fade-up">Happy Users</h2>
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
                         <div class="item carousel-item active">
-                            <div class="img-box"><img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s1.jpg" alt=""></div>
+                            <div class="img-box"><img
+                                    src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s1.jpg"
+                                    alt=""></div>
                             <p class="testimonial">"You guys are great! Thanks so much for doing a great job."</p>
                             <p class="overview"><b>Una Schulz</b>, New York</p>
                         </div>
                         <div class="item carousel-item">
-                            <div class="img-box"><img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s2.jpg" alt=""></div>
+                            <div class="img-box"><img
+                                    src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s2.jpg"
+                                    alt=""></div>
                             <p class="testimonial">"IssuTracker is the difference between success and failure."</p>
                             <p class="overview"><b>Paulo Merato</b>, Berlin</p>
                         </div>
                         <div class="item carousel-item">
-                            <div class="img-box"><img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s3.jpg" alt=""></div>
+                            <div class="img-box"><img
+                                    src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/happyusers/s3.jpg"
+                                    alt=""></div>
                             <p class="testimonial">"You guys are great! Thanks so much for doing a great job."</p>
                             <p class="overview"><b>Julius Zoll</b>, London</p>
                         </div>
@@ -198,19 +185,16 @@
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
-
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
-
+<!---------------------------------Blog section------------------------------------->
 <div class="container blog">
     <h2 data-aos="fade-up">Our Blog</h2>
     <div class="row ">
-
         <div class="card-deck">
             {% for post in posts %}
             <div class="col-md-4">
@@ -225,27 +209,17 @@
                         <a href="{% url 'post_detail' post.id %}" class="">Read more</a>
                     </div>
                 </div>
-
             </div>
             {% endfor %}
-
-
-
-
         </div>
-
-
-
     </div>
 </div>
 
-
-
+<!---------------------------------Staff section------------------------------------->
 <div class="container-fluid our-team-section ">
     <div class="container">
         <h2 data-aos="fade-up">Our Team</h2>
         <div class="row ">
-
             <div class="col-sm-6 col-md-6 col-lg-3 center ">
                 <div class="staff" data-aos="fade-right">
                     <div class="img-wrap d-flex align-items-stretch">
@@ -333,7 +307,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

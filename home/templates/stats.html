@@ -1,31 +1,22 @@
 {% extends "base.html" %}
 {% block page_title %}Stats{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Statistics</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
-
 <div class="container mt-5 mb-5 text-center">
-
-
-
-
     <h4>To offer transparency to our users, we have created this page that contains graphs showing how many of the bugs
         added
         by users have been solved and how many features have been implemented to our app.</h4>
@@ -43,10 +34,7 @@
                 <div class="">Features</div><canvas id="myChart1"></canvas>
             </div>
         </div>
-
-
     </div>
-
 </div>
 
 
@@ -131,9 +119,6 @@
             }
         }
     });
-
-
-
 
 </script>
 

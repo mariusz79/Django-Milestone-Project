@@ -1,33 +1,24 @@
 {% extends "base.html" %}
-
 {% load bootstrap_tags %}
 {% block page_title %}Bug Creation{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Bugs/Bug Creation</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
-
-
-
-
 <div class="container">
-
+    <!------------------------------Bug form------------------------------->
     <div class="center mt-5 mb-5">
         <div class="card shadow mt-5">
             <div class="card-header text-center">
@@ -39,17 +30,13 @@
                     {{ form | as_bootstrap }}
                     <button type="submit" class="btn btn-info btn-rounded   btn-block">Save Bug &nbsp; <i
                             class="far fa-paper-plane"></i></button>
-
                 </form>
-
-
             </div>
             <div class="border-top card-footer">
                 <small class="text-muted center">
                     <a href=" {% url 'profile' %}" class="ml-1"> Back to Profile Page
                     </a></small>
             </div>
-
         </div>
     </div>
 </div>

@@ -1,32 +1,22 @@
-{% extends 'base.html' %} {% block page_title %}Donate Page{% endblock %}
+{% extends 'base.html' %} 
+{% block page_title %}Donate Page{% endblock %}
 {% load bootstrap_tags %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
             <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Donate/Charge</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
-
-
-
-
-
-
-
+<!------------------------------Donation form------------------------------->
 <div class="container text-center mt-4 mb-5">
     <h3>Donate <small>(50eur is the minimum amount)</small></h3>
     After donating You will get SPONSOR status.
@@ -38,7 +28,6 @@
             <div class="card shadow mt-5">
                 <h3 class="card-header center">Donate</h3>
                 <div class="card-body ">
-
                     <form action="{% url 'charge' %}" method="post">
                         {% csrf_token %}
                         <input name="quantity" type="number" min="50" max="999" class="form-control mb-4" value="50">
@@ -46,15 +35,11 @@
                             data-key='{{ publishable }}' data-description="A Django Charge" data-amount="amount"
                             data-locale="auto"></script>
                     </form>
-
                 </div>
                 <div class="border-top card-footer">
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
 {% endblock %}

@@ -1,30 +1,25 @@
 {% extends 'base.html'%}
 {% load my_tags %}
 {% load bootstrap_tags %}
-
 {% block page_title %}Search Result{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Search/Results</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
 <div class="container ">
-
+<!----------------------------Search form---------------------------->
     <div class="row justify-content-center mt-3 mb-5">
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow mt-5">
@@ -46,41 +41,29 @@
                                 {% endfor %}
                             </select>
                         </div>
-
                         <div class="form-group col-sm-1">
                             <button class="btn btn-success   search-button  " type="submit"><i
                                     class="fas fa-search"></i></button>
                         </div>
-
                     </form>
-
                 </div>
-
-
             </div>
         </div>
     </div>
 
 
-
     <div class="container">
         {% for post in object_list %}
-
+        <!------------------------------results for posts------------------------------>
         {% if post.class_name == 'Post' %}
-
-
-
         <div class="row blogs shadow">
             <div class="col-md-4 col-sm-12 text-center">
                 <a class="story-img" href="{% url 'post_detail' post.id %}">
                     <img class="article-img img-fluid img-thumbnail shadow" src="/media/{{ post.image }}">
                 </a>
-
-
             </div>
             <div class="col-md-8 col-sm-12">
                 <h3 class="post-title">{{ post.title }}</h3>
-
                 <p class="mb-3">{{ post.content|truncatewords:30 }}</p>
                 <p><a href="{% url 'post_detail' post.id %}" class="btn btn-info">Continue reading</a></p>
                 <i class="fas fa-user-circle"></i> <span class="mr-2" href="#">{{ post.author }}</span>,
@@ -88,21 +71,13 @@
                 <p><span class=" icon-blog"><i class="far fa-eye"></i> {{post.views}}</span>
                     <span class=" icon-blog"><i class="far fa-thumbs-up"></i> {{post.likes}}</span>
                     <span class="icon-blog "><i class="far fa-comment-alt"></i> {{post.comments.all.count}}</p></span>
-
-
             </div>
         </div>
         {% endif %}
 
-
-
-
+        <!-----------------------------Results for features------------------------------->
         {% if post.class_name == 'Feature' %}
-
-
-
         <div class="row feature-card hoverable shadow ">
-
             <div class="col-8">
                 <i class="far fa-gem card-header-font"></i>
                 <a href="{% url 'feature_detail' post.pk %}"><span class="wb">{{ post.title|title }}</span></a> <span
@@ -117,11 +92,9 @@
                             href="{% url 'other_user_profile' post.author.username %}">{{ post.author }}</a>,</span>
 
                     {% endif %}
-
                     <span class="post-info"><span class=" icon-blog"><i class="far fa-calendar-alt"></i>
                             {{ post.published_date }}
                         </span></span>
-
                     <span class=" icon-blog post-info"><i class="far fa-eye"></i> {{post.views}}</span>
                     <span class=" icon-blog post-info"><i class="far fa-thumbs-up"></i> {{post.likes}}</span>
                     <span class="icon-blog post-info"><i class="far fa-comment-alt"></i>
@@ -131,21 +104,15 @@
             <div class="col-4">
                 <span class="float-right status status-{{post.status}}">{{ post.get_status_display }}</span>
             </div>
-
         </div>
         {% endif %}
 
-
+        <!------------------------------Results for bugs------------------------------->
         {% if post.class_name == 'Bug' %}
-
-
         <div class="row blogs shadow">
-
             <div class="col-8">
-
                 <a href="{% url 'post_detail' post.id %}"><span class="wb">{{ post.title|title }}</span></a> <span
                     class="text-muted">#{{post.id}}</span>
-
                 <div class="mb-2 mt-2">
                     {% if user.is_authenticated and user.username == post.author.username %}
                     <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
@@ -155,7 +122,6 @@
                             href="{% url 'other_user_profile' post.author.username %}">{{ post.author }}</a>,</span>
 
                     {% endif %}
-
                     <span class="post-info"><span class=" icon-blog"><i class="far fa-calendar-alt"></i>
                             {{ post.published_date }}
                         </span></span>
@@ -169,26 +135,24 @@
             <div class="col-4">
                 <span class="float-right status status-{{post.status}}">{{ post.get_status_display }}</span>
             </div>
-
         </div>
         {% endif %}
 
-{% empty %}
-<p class="text-center">No matches found</p>
+        {% empty %}
+        <p class="text-center">No matches found</p>
         {% endfor %}
-
 
     </div>
 
-
+    <!------------------------------Pagination----------------------------->
     <div class="d-flex justify-content-center mb-2 mt-5">
         <div class="pagination">
             <span class="step-links">
                 {% if object_list.has_previous %}
                 <a class="btn btn-outline-info mb-4" href="?{% param_replace page=1 %}">First</a>
-                <a class="btn btn-outline-info mb-4" href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
                 {% endif %}
-
 
                 {% for num in object_list.paginator.page_range %}
                 {% if object_list.number == num %}
@@ -198,10 +162,11 @@
                 {% endif %}
                 {% endfor %}
 
-
                 {% if object_list.has_next %}
-                <a class="btn btn-outline-info mb-4" href="?{% param_replace page=object_list.next_page_number %}">Next</a>
-                <a class="btn btn-outline-info mb-4" href="?{% param_replace page=object_list.paginator.num_pages %}">Last</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?{% param_replace page=object_list.next_page_number %}">Next</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?{% param_replace page=object_list.paginator.num_pages %}">Last</a>
                 {% endif %}
             </span>
         </div>
@@ -209,9 +174,3 @@
 
 </div>
 {% endblock %}
-
-
-
-
-
- 

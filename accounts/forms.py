@@ -45,6 +45,7 @@ class UserRegistrationForm(UserCreationForm):
         return password2
 
 class UserUpdateForm(forms.ModelForm):
+    """Form used to update user's email"""
     email = forms.EmailField()
 
     class Meta:
@@ -53,6 +54,7 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    """Form used to update user's profile image"""
     class Meta:
         model = Profile
         fields = ['image']

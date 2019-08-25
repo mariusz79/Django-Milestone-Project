@@ -2,28 +2,22 @@
 {% load bootstrap_tags %}
 {% block page_title %}Blog Post{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
             <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Blog/Post Detail</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
 <div class="container container-1000px">
     <div class="row mt-5 mb-5">
-
         <div class="col  pt-5 ">
             {% if post.image %}
             <img class="img-blogpost center img-thumbnail" src="{{ post.image.url }}">
@@ -31,11 +25,9 @@
             </span>
             {% endif %}
             <h3 class="post-title pt-3 pb-3">{{ post.title }}</h3>
-
             <span class=""  ">
                 <img src="{{ post.author.profile.image.url|default:'/media/img/default.jpg' }}"
                     class="img-circle comment-avatar">
-
             </span>
             <p><span class="boldtext">Author:</span>
                 {% if user.is_authenticated and user.username == post.author.username %}
@@ -53,7 +45,7 @@
                     <span class="post-info"><span class="boldtext">Tag:</span> {{ post.tag }} </span>
                     <span class="post-info"><span class="boldtext">Likes:</span> {{ post.likes }} </span>
                 </div>
-                <p><a href="{% url 'sort_by' %}" class="btn btn-info">Back to Blog</a></p>
+                <a href="{% url 'sort_by' %}" class="btn btn-info">Back to Blog</a>
                 {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-info">Edit Post</a>
                 {% endif %}
@@ -64,15 +56,13 @@
                 {% endif %}
                 <hr>
             </div>
-
         </div>
     </div>
 
-    <!-- Comments Form -->
+    <<!----------------------------comment form----------------------------->
 
     <div class="row">
         <div class="col-md-2 col-sm-3 text-center">
-
         </div>
         <div class="col-sm-10 col-md-9 mb-3">
             {% if user.is_authenticated %}
@@ -82,25 +72,17 @@
                     {{ comment_form|as_bootstrap }}
                     {% csrf_token %}
                     <span class="center"><button class="btn btn-primary" type="submit">Add comment</button></span>
-
                 </form>
             </span>
             {% endif %}
             <hr>
-
-
+            <!------------------------------Comments------------------------------>
             <span>{{post.comments.all.count}} Comment(s)</span>
         </div>
     </div>
-
-
-
-
     {% for comment in post.comments.all %}
     <div class="row  card mb-2 ml-1 mr-1">
         <ul class="media-list">
-
-
             <li class="media">
                 <span class="pull-left">
                     <img src="{{ comment.author.profile.image.url|default:'/media/img/default.jpg' }}" alt=""
@@ -121,12 +103,8 @@
                 </div>
             </li>
         </ul>
-
     </div>
     {% empty %}
-
     {% endfor %}
-
-
 </div>
 {% endblock %}

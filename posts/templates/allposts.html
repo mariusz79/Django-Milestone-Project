@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load my_tags %}
 {% load bootstrap_tags %}
-
 {% block page_title %}Blog Posts{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
@@ -18,6 +18,7 @@
 
 {% block content %}
 <div class="container">
+    <!-----------------------------Sort by------------------------------>
     <div class="row mt-4">
         <div class="col-lg-3 col-md-3 col-sm-6">
             <span>
@@ -41,22 +42,17 @@
     </div>
 </div>
 
-
-
 <div class="container ">
-
+<!------------------------------All posts------------------------------->
     {% for post in object_list %}
     <div class="row blogs shadow">
         <div class="col-md-4 col-sm-12 text-center">
             <a class="story-img" href="{% url 'post_detail' post.id %}">
                 <img class="article-img img-fluid img-thumbnail shadow" src="{{ post.image.url }}">
             </a>
-
-
         </div>
         <div class="col-md-8 col-sm-12">
             <h3 class="post-title">{{ post.title }}</h3>
-
             <p class="mb-3">{{ post.content|truncatewords:30 }}</p>
             <p><a href="{% url 'post_detail' post.id %}" class="btn btn-info">Continue reading</a></p>
             {% if user.is_authenticated and user.username == post.author.username %}
@@ -71,11 +67,11 @@
             <p><span class=" icon-blog"><i class="far fa-eye"></i> {{post.views}}</span>
                 <span class=" icon-blog"><i class="far fa-thumbs-up"></i> {{post.likes}}</span>
                 <span class="icon-blog "><i class="far fa-comment-alt"></i> {{post.comments.all.count}}</p></span>
-
-
         </div>
     </div>
     {% endfor %}
+
+    <!------------------------------Pagination------------------------------>
     <div class="d-flex justify-content-center mb-2 mt-2">
         <div class="pagination">
             <span class="step-links">
@@ -84,7 +80,6 @@
                 <a class="btn btn-outline-info mb-4" href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
                 {% endif %}
 
-
                 {% for num in object_list.paginator.page_range %}
                 {% if object_list.number == num %}
                 <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
@@ -92,7 +87,6 @@
                 <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
                 {% endif %}
                 {% endfor %}
-
 
                 {% if object_list.has_next %}
                 <a class="btn btn-outline-info mb-4"
@@ -103,7 +97,5 @@
             </span>
         </div>
     </div>
-
 </div>
-
 {% endblock %}

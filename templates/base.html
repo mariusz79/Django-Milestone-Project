@@ -1,5 +1,5 @@
 {% load static from staticfiles %}
- 
+
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +7,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link href="https://fonts.googleapis.com/css?family=Orbitron|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -17,8 +16,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
 
-    <title>{% block page_title %}{% endblock page_title %}</title> 
-    
+    <title>{% block page_title %}{% endblock page_title %}</title>
+
 </head>
 
 <body>
@@ -27,14 +26,14 @@
         {% block background %}
         {% endblock background %}
 
-        <!--Navbar -->
-        
+        <!---------------------------------Navbar------------------------------------->
         <nav class=" navbar navbar-expand-lg    fixed-top">
             <div class="container-fluid ">
                 <a class="navbar-brand nav-link" href="{% url 'home' %}"><i class="fas fa-keyboard"></i>&nbsp;
                     IssueTracker</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
                 <div class="collapse navbar-collapse text-center" id="navbarSupportedContent-4">
@@ -65,13 +64,10 @@
                                 <i class="fas fa-chalkboard-teacher"></i> Community </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-background text-center"
                                 aria-labelledby="navbarDropdownMenuLink-4">
-        
-        
                                 <a class="dropdown-item drop-item" href="{% url 'sort_by' %}">Blog &nbsp;
                                     <i class="fas fa-pencil-alt"></i></a>
                                 <a class="dropdown-item drop-item" href="{% url 'stats' %}">Stats &nbsp; <i
                                         class="fas fa-chart-line"></i></a>
-        
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -81,16 +77,16 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-background  text-center"
                                 aria-labelledby="navbarDropdownMenuLink-4">
                                 {% if user.is_authenticated %}
-                                <a class="dropdown-item drop-item"" href="{% url 'profile' %}">Profile &nbsp;
+                                <a class="dropdown-item drop-item"" href=" {% url 'profile' %}">Profile &nbsp;
                                     <i class="fas fa-id-card"></i>
                                 </a>
-                                <a class="dropdown-item drop-item"" href="{% url 'logout' %}">Logout &nbsp;
+                                <a class="dropdown-item drop-item"" href=" {% url 'logout' %}">Logout &nbsp;
                                     <i class="fas fa-sign-out-alt"></i>
                                 </a>
                                 {% else %}
-                                <a class="dropdown-item drop-item"" href="{% url 'user-login' %}">Login &nbsp;
+                                <a class="dropdown-item drop-item"" href=" {% url 'user-login' %}">Login &nbsp;
                                     <i class="fas fa-sign-in-alt"></i></a>
-                                <a class="dropdown-item drop-item"" href="{% url 'registration' %}">Register &nbsp; <i
+                                <a class="dropdown-item drop-item"" href=" {% url 'registration' %}">Register &nbsp; <i
                                         class="fas fa-user-plus"></i></a>
                                 {% endif %}
                             </div>
@@ -101,10 +97,10 @@
         </nav>
         <!--/.Navbar -->
 
-        <!--scroll up button-->
+        <!-----------------scroll up button------------------------------>
         <a id="button-up"><i class="fa fa-angle-up arrow-up"></i></a>
-        
-        <!--messages-->
+
+        <!---------------------messages---------------------------------->
         <div class="  messages">
             <div class="row">
                 <div class="col center">
@@ -119,70 +115,61 @@
             </div>
         </div>
 
-    {% block content %}
-    {% endblock content %}
+        <!---------------------------------content section------------------------------------->
+        {% block content %}
+        {% endblock content %}
 
-
-    <footer class="">
-        <div class="container">
-            <div class="row">
-    
-    
-    
-    
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="menu">
-                        <span>Menu</span>
-                        <li>
-                            <a href="{% url 'home' %}">Home</a>
-                        </li>
-    
-                        <li>
-                            <a href="{% url 'contact' %}">Contact Us</a>
-                        </li>
-    
-                        <li>
-                            <a href="{% url 'sort_by' %}">Blog</a>
-                        </li>
-    
-                        <li>
-                            <a href="{% url 'stats' %}">Stats </a>
-                        </li>
-                    </ul>
+        <!---------------------------------footer---------------------------------------------->
+        <footer class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="menu">
+                            <span>Menu</span>
+                            <li>
+                                <a href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contact' %}">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'sort_by' %}">Blog</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'stats' %}">Stats </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="menu">
+                            <span>Social</span>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i>&nbsp; Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i>&nbsp; Twitter</a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i>&nbsp; Instagram</a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i>&nbsp; Pinterest</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="address">
+                            <span>Contact</span>
+                            <li>
+                                <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">0035 131313 3131</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">127 Curragh Woods,
+                                    Grange,
+                                    Cork</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">unicorn@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-    
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="menu">
-                        <span>Social</span>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i>&nbsp; Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i>&nbsp; Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i>&nbsp; Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i>&nbsp; Pinterest</a></li>
-                    </ul>
-                </div>
-    
-    
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="address">
-                        <span>Contact</span>
-                        <li>
-                            <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">0035 131313 3131</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">127 Curragh Woods, Grange,
-                                Cork</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">unicorn@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-    
-    
             </div>
-        </div>
-    </footer>
+        </footer>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -197,15 +184,13 @@
     <script>
 
         $(document).ready(function () {
-                      $(window).scroll(function () {
-
+            $(window).scroll(function () {          //function to make navbar solid on scroll
                 var height = $('.first-container').height();
                 var scrollTop = $(window).scrollTop();
                 var bannerheight = 200
                 if (height == 500) {
                     bannerheight = 400
                 }
-
                 if (scrollTop >= height - bannerheight) {
                     $('.navbar').addClass('solid-nav').addClass('shadow');
                     $('.navbar-brand').addClass('smaller-font');
@@ -213,12 +198,11 @@
                     $('.navbar').removeClass('solid-nav').removeClass('shadow');
                     $('.navbar-brand').removeClass('smaller-font');
                 }
-
             });
 
             var btnup = $('#button-up');
 
-            $(window).scroll(function () {
+            $(window).scroll(function () {      //function to show and hide scroll button
                 if ($(window).scrollTop() > 300) {
                     btnup.addClass('show');
                 } else {
@@ -230,22 +214,16 @@
                 e.preventDefault();
                 $('html, body').animate({ scrollTop: 0 }, '300');
             });
-            
- 
-            AOS.init({
+
+            AOS.init({                          //settings for animation on scroll
                 easing: 'ease-out-back',
                 duration: 800,
                 delay: 300,
                 once: true,
-
             });
             setTimeout(function () {
                 $('.message').fadeOut('slow');
-            }, 3000); // <-- time in milliseconds, 1000 =  1 sec
-
-            
-
-
+            }, 3000); 
         });
 
     </script>

@@ -1,30 +1,24 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
-
-
 {% block page_title %}Contact Page{% endblock %}
 
+<!------------------------------Banner------------------------------->
 {% block background %}
 <div class="first-container pages">
     <div class="baner ">
         <div class="image-darker">
-            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg" class="background-short "></div>
+            <img src="https://issuetracker-django.s3-eu-west-1.amazonaws.com/static/img/banners/b+(16a).jpg"
+                class="background-short "></div>
         <div class="banner-title-down text-center ">
-
-
             <h3 class="text-white ">Contact</h3>
-
-
         </div>
-
     </div>
 </div>
-
-
 {% endblock background %}
+
 {% block content %}
 <div class="container">
-
+    <!------------------------------contact form------------------------------->
     <div class="row justify-content-center mt-4 mb-4">
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow mt-5">
@@ -34,17 +28,12 @@
                         {% csrf_token %}
                         {{ form | as_bootstrap }}
                         <button type="submit" class="btn btn-info btn-rounded   btn-block">SEND MESSAGE </button>
-
                     </form>
-
-
                 </div>
                 <div class="border-top card-footer center">
-
                     <span> <a href="{% url 'home' %}" class="ml-1"> Back to Home Page
                         </a></span>
                 </div>
-
             </div>
         </div>
     </div>

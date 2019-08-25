@@ -8,8 +8,6 @@ class Feature(models.Model):
     """
     A single feature
     """
-   
-
     title = models.CharField(max_length=200)
     description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
@@ -20,7 +18,6 @@ class Feature(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
-
     def __unicode__(self):
         return self.title
 
@@ -28,6 +25,7 @@ class Feature(models.Model):
         return self.__class__.__name__
 
 class FeatureLike(models.Model):
+    """Upvoting feature"""
     liker_user = models.ForeignKey(User, null=True)
     liked_feature = models.ForeignKey(Feature, null=True)
 

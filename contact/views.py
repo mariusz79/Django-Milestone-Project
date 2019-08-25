@@ -6,9 +6,8 @@ from django.conf import settings
 
 email_address = settings.EMAIL_HOST_USER
 
-
-
 def contact(request):
+    """sending message"""
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -28,4 +27,5 @@ def contact(request):
 
 
 def contact_success(request):
+    """display contact_sucess.html if message send"""
     return render(request, "contact_success.html")

@@ -78,7 +78,7 @@ def post_detail(request, pk):
             new_comment = form.save(commit=False)
             new_comment.author = request.user
             new_comment.email = request.user.email
-            # assign ship to the comment
+             
             new_comment.post = post
             # save
             new_comment.save()
@@ -119,7 +119,7 @@ def liking(request, pk):
 
 
 def sort_by(request):
-    """ view to render the minimal search template """
+    """ view to render all posts template """
 
     type_session = request.session.get('type', None)
 
@@ -148,6 +148,7 @@ def sort_by(request):
 
     page = request.GET.get('page', 1)
 
+    #pagination
     paginator = Paginator(posts, 5)
     try:
         posts = paginator.page(page)
