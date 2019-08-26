@@ -413,6 +413,7 @@ footer{
     border-radius: 4px;
     min-width: 4rem;
     text-align: center;
+    max-width: 4rem;
 }
 
 .status-1{
@@ -459,6 +460,13 @@ footer{
     color: white;
 }
 
+.pull-left{
+  padding-left: 0;
+}
+
+.pull-right{
+  padding-right: 0;
+}
 /*-------------------features-------------------------------*/
 .features{
     background-color: #ae1b89;
@@ -805,6 +813,9 @@ h2::after {
 }
 
 @media (max-width: 576px) {
+.pull-left{
+  padding-left: 15px;
+}
 .inner-form{ 
   display: inline;
 }

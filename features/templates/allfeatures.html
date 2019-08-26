@@ -20,7 +20,7 @@
 <div class="container container-1000px">
     <div class="row mt-4">
         <!-----------------------------Sort by----------------------------->
-        <div class="col-lg-3 col-md-3 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 pull-left">
             <span>
                 <h5 class=" ">Sort By</h5>
                 <form class=" " action="{% url 'get_features' %}" method="get">
@@ -40,7 +40,7 @@
             </span>
         </div>
 <!------------------------------Add feature------------------------------->
-        <div class="col-lg-9 col-md-9 col-sm-6">
+        <div class="col-lg-9 col-md-9 col-sm-6 pull-right">
             <a href="{% url 'new_feature' %}" class="btn feature-button go-right add-feature">Add Feature</a>
         </div>
     </div>
@@ -56,10 +56,10 @@
             <div class="mb-2 mt-2">
                 {% if user.is_authenticated and user.username == feature.author.username %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href=" {% url 'profile'  %}">{{ feature.author }}</a>,</span>
+                        href=" {% url 'profile'  %}">{{ feature.author }}</a></span>
                 {% else %}
                 <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                        href=" {% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a>,</span>
+                        href=" {% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a></span>
 
                 {% endif %}
 

@@ -28,15 +28,18 @@
             <hr>
             <p class="text-justify post-content">{{ bug.description }}</p>
             <hr>
+            <div class="boldtext"> Status:  <span class=" status status-{{bug.status}}">
+                {{ bug.get_status_display }}</span></div>
+                <hr>
             <div class="col-xs-9">
                 <div class="post-info-background mb-4">
                     <div class="mb-2 mt-2">
                         {% if user.is_authenticated and user.username == bug.author.username %}
                         <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                                href="{% url 'profile'  %}">{{ bug.author }}</a>,</span>
+                                href="{% url 'profile'  %}">{{ bug.author }}</a></span>
                         {% else %}
                         <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                                href=" {% url 'other_user_profile' bug.author.username %}">{{ bug.author }}</a>,</span>
+                                href=" {% url 'other_user_profile' bug.author.username %}">{{ bug.author }}</a></span>
 
                         {% endif %}
                         {% if bug.author in group %}
@@ -58,12 +61,11 @@
 
                     </div>
                 </div>
-                <hr>
-                <span class="boldtext"> Status: </span><span class=" status status-{{bug.status}}">
-                    {{ bug.get_status_display }}</span>
+                
+                
                 <hr>
                 <div class="mb-3">
-                    <a href="{% url 'get_bugs' %}" class="btn btn-info">Back to Bugs</a>
+                    
                     {% if user.is_authenticated and user == bug.author %}
                     <a href="{% url 'edit_bug' bug.id %}" class="btn btn-info">Edit Bug</a>
                     {% endif %}
@@ -80,6 +82,8 @@
         </div>
     </div>
 
+    <div class="row"><a href="{% url 'get_bugs' %}" class="btn btn-info mb-4 ml-1 mr-1">Back to Bugs</a></div>
+   
     <!------------------------------Comments------------------------------>
     <div class="mb-2">
         {{bug.comments.all.count}} Comment(s)

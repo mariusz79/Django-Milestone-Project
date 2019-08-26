@@ -30,15 +30,19 @@
 
             <p class="text-justify post-content">{{ feature.description }}</p>
             <hr>
+
+            <div class="boldtext"> Status: <span class=" status status-{{feature.status}}">
+                {{ feature.get_status_display }}</span> </div>
+            <hr>
             <div class="col-xs-9">
                 <div class="post-info-background mb-4">
                     <div class="mb-2 mt-2">
                         {% if user.is_authenticated and user.username == feature.author.username %}
                         <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                                href=" {% url 'profile'  %}">{{ feature.author }}</a>,</span>
+                                href=" {% url 'profile'  %}">{{ feature.author }}</a></span>
                         {% else %}
                         <span class="post-info"><i class="fas fa-user-circle"></i> <a class="mr-2"
-                                href=" {% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a>,</span>
+                                href=" {% url 'other_user_profile' feature.author.username %}">{{ feature.author }}</a></span>
                         {% endif %}
 
                         {% if feature.author in group %}
@@ -58,20 +62,18 @@
                         </div>
                     </div>
                 </div>
-                <hr>
-                <span class="boldtext"> Status: </span><span class=" status status-{{feature.status}}">
-                    {{ feature.get_status_display }}</span>
+              
+                
                 <hr>
                 <div class="mb-3">
-                    <a href="{% url 'get_features' %}" class="btn btn-info">Back to Features</a>
+                    
                     {% if user.is_authenticated and user == feature.author %}
                     <a href="{% url 'edit_feature' feature.id %}" class="btn btn-info">Edit Feature</a>
                     {% endif %}
                     {% if user.is_authenticated %}
                     {% if is_liked == False and user in group%}
                     <span class="float-right mb-3"><a href="{% url 'liking_feature' feature.id %}"
-                            class="btn btn-primary">I
-                            have this too</a></span>
+                            class="btn btn-primary">I have this too</a></span>
 
                     {% endif %}
                     {% endif %}
@@ -80,6 +82,9 @@
         </div>
     </div>
 
+    <div class="row">
+        <a href="{% url 'get_features' %}" class="btn btn-info mb-4 ml-1 mr-1">Back to Features</a>
+    </div>
 <!------------------------------Comments------------------------------->
     <div class="mb-2">
         {{feature.comments.all.count}} Comment(s)

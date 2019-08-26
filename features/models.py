@@ -18,9 +18,9 @@ class Feature(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
-
+    
     def class_name(self):
         return self.__class__.__name__
 
