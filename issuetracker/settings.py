@@ -182,11 +182,11 @@ DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
  
 
-EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+EMAIL_HOST_USER = os.environ.get['SENDGRID_USERNAME']
 EMAIL_HOST= 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+EMAIL_HOST_PASSWORD = os.environ.get['SENDGRID_PASSWORD']
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 AUTHENTICATION_BACKENDS = [
