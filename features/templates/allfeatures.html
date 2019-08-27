@@ -81,6 +81,7 @@
     {% endfor %}
 
     <!------------------------------Pagination------------------------------>
+    {% if object_list.paginator.count > 5 %}
     <div class="d-flex justify-content-center mb-2 mt-3">
         <div class="pagination">
             <span class="step-links">
@@ -107,5 +108,6 @@
             </span>
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

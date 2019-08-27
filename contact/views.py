@@ -19,7 +19,7 @@ def contact(request):
             try:
                 message_body = 'From:  email: {email} \n subject: {subject} \n message: {message}'.format(email=email, 
             subject=subject, message=message)
-                send_mail(subject, message_body, email, [email_address])
+                send_mail(subject, message_body, settings.EMAIL_HOST_USER, [email_address])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('contact_success')

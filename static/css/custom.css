@@ -43,9 +43,6 @@ ul {
     color: red;
 }
 
-.messages{
-  background-color: #f1f1f1;
-}
 
 .first-container{
   background:   no-repeat center center; 
@@ -469,19 +466,19 @@ footer{
 }
 /*-------------------features-------------------------------*/
 .features{
-    background-color: #ae1b89;
-    border: 1px solid #9b187a;
+    background-color: #1badae;
+    border: 1px solid #199595;
     color: white
 }
 
 .feature-button{
-    background-color: #ae1b89;
-    border: 1px solid #9b187a;
+    background-color: #1badae;
+    border: 1px solid #179595;
     color: white
 }
 
 .feature-button:hover{
-    background-color: #87196c;
+    background-color: #106262;
     color: white;
 }
 

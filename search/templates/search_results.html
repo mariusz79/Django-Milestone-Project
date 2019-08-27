@@ -52,7 +52,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container mb-5">
         {% for post in object_list %}
         <!------------------------------results for posts------------------------------>
         {% if post.class_name == 'Post' %}
@@ -145,6 +145,7 @@
     </div>
 
     <!------------------------------Pagination----------------------------->
+    {% if object_list.paginator.count > 5 %}
     <div class="d-flex justify-content-center mb-2 mt-5">
         <div class="pagination">
             <span class="step-links">
@@ -171,6 +172,6 @@
             </span>
         </div>
     </div>
-
+    {% endif %}
 </div>
 {% endblock %}

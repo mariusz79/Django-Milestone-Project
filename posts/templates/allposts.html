@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<div class="container ">
+<div class="container mb-5">
 <!------------------------------All posts------------------------------->
     {% for post in object_list %}
     <div class="row blogs shadow">
@@ -72,6 +72,7 @@
     {% endfor %}
 
     <!------------------------------Pagination------------------------------>
+    {% if object_list.paginator.count > 5 %}
     <div class="d-flex justify-content-center mb-2 mt-2">
         <div class="pagination">
             <span class="step-links">
@@ -97,5 +98,6 @@
             </span>
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

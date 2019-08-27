@@ -41,7 +41,7 @@
         </div>
         <!------------------------------Add Bug------------------------------->
         <div class="col-lg-9 col-md-9 col-sm-6 pull-right">
-            <a href="{% url 'new_bug'  %}" class="btn bug-button go-right add-feature">Create Bug</a>
+            <a href="{% url 'new_bug'  %}" class="btn btn-secondary go-right add-feature">Create Bug</a>
         </div>
     </div>
 
@@ -74,6 +74,7 @@
     {% endfor %}
 
     <!------------------------------Pagination------------------------------->
+    {% if object_list.paginator.count > 5 %}
     <div class="d-flex justify-content-center mb-2">
         <div class="pagination">
             <span class="step-links">
@@ -100,5 +101,6 @@
             </span>
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

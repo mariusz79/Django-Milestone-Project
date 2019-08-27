@@ -45,7 +45,7 @@
                     <span class="post-info"><span class="boldtext">Tag:</span> {{ post.tag }} </span>
                     <span class="post-info"><span class="boldtext">Likes:</span> {{ post.likes }} </span>
                 </div>
-                <a href="{% url 'sort_by' %}" class="btn btn-info">Back to Blog</a>
+                <a href="{% url 'sort_by' %}" class="btn btn-outline-info">Back to Blog</a>
                 {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-info">Edit Post</a>
                 {% endif %}
@@ -75,7 +75,7 @@
                 </form>
             </span>
             {% endif %}
-            <hr>
+           
             <!------------------------------Comments------------------------------>
             <span>{{post.comments.all.count}} Comment(s)</span>
         </div>
