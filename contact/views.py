@@ -29,4 +29,3 @@ def contact(request):
 def contact_success(request):
     """display contact_sucess.html if message send"""
     return render(request, "contact_success.html")
-
