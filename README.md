@@ -25,7 +25,7 @@ Django milestone project for Code Insitute.
 1. [Acknowledgements](#acknowledgements)
 
 ## UX
-The website is made to be as responsive as possible. HTML, CSS, and JavaScript are used to enhance the look and feel of the project. The site also makes use of CSS framework named Bootstrap.
+The website is made to be as responsive as possible. [HTML](https://www.scaler.com/topics/html), [CSS](https://www.scaler.com/topics/css), and [JavaScript](https://www.scaler.com/topics/javascript/) are used to enhance the look and feel of the project. The site also makes use of CSS framework named Bootstrap.
 
 Target audience of the website are people who want to create tickets for bugs they found in the application or ask for adding new features to the app. This site offers the service and bug fixes for free, but ask for money from users to develop additional features.
 
